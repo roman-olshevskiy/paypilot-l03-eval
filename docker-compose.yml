@@ -1,0 +1,33 @@
+x-eval: &eval
+  image: python:3.12-slim
+  working_dir: /course/solutions/evals
+  command: ["python", "runner.py"]
+  env_file:
+    - path: .env
+      required: false
+  volumes:
+    - .:/course/solutions/evals
+    - ${STAND_DIR:-../paypilot-stand}/app:/course/app:ro
+
+x-eval-env: &eval-env
+  SET: ${SET:-l03}
+  GATE: ${GATE:-daily}
+  CASE: ${CASE:-}
+  PYTHONDONTWRITEBYTECODE: "1"
+
+services:
+  eval:
+    <<: *eval
+    environment:
+      <<: *eval-env
+      SERVICE_URL: ${EVAL_STAND_URL:-http://host.docker.internal:8000}
+    extra_hosts:
+      - host.docker.internal:host-gateway
+
+  eval-host:
+    <<: *eval
+    profiles: [host]
+    network_mode: host
+    environment:
+      <<: *eval-env
+      SERVICE_URL: ${EVAL_STAND_URL:-http://127.0.0.1:8000}
