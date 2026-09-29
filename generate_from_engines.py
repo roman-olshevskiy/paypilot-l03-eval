@@ -24,6 +24,12 @@ CUSTOMERS = {
 }
 
 
+WHY_GROUNDED = ("a money figure: exact equality would fail on the last cent, "
+                "so level 2 with a tolerance; the figure is read from the "
+                "quote_fx result in the trace and then from the answer, so a "
+                "number the agent never got from the tool does not pass")
+
+
 def case(cid, text, expected, meta):
     return {
         "id": cid,
@@ -52,15 +58,16 @@ def fx_cases():
             f"I'm {cust}. Convert {amount} {frm} to {to}. "
             f"What is the final amount I receive?",
             f"{q.final_amount:.2f} {to}",
-            {"layer": "generation", "oracle": "engine", "assertion": "numeric",
+            {"layer": "generation", "oracle": "engine",
+             "assertion": "tool_grounded_numeric",
+             "tool": "quote_fx", "field": "final_amount",
              "expected_number": round(q.final_amount, 2), "tolerance": 0.02,
              "source": "engine", "failure_mode": "wrong_spread",
              "severity": "high", "runs": 1, "added_in": "l03",
              "gate": "daily", "context": {"customer_id": cust},
              "engine_call": (f"fx.quote({amount}, {frm!r}, {to!r}, {tier!r}, "
                              f"allowance_used_eur={used})"),
-             "why_this_level": "a money figure: exact equality would fail on "
-                               "the last cent, so level 2 with a tolerance"}))
+             "why_this_level": WHY_GROUNDED}))
         if q.spread_pct == 0:
             out.append(case(
                 f"{cid}-S", f"I'm {cust}. What spread applies to a {amount} "

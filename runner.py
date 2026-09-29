@@ -74,6 +74,10 @@ def evaluate(case: dict, results: list[dict]) -> A.Verdict:
         return A.tool_result_numeric(tree, meta["tool"], meta["field"],
                                      meta["expected_number"],
                                      meta.get("tolerance", 0.01))
+    if name == "tool_grounded_numeric":
+        return A.tool_grounded_numeric(tree, answer, meta["tool"],
+                                       meta["field"], meta["expected_number"],
+                                       meta.get("tolerance", 0.01))
     if name == "tool_result_flag":
         return A.tool_result_flag(tree, meta["tool"], meta["field"],
                                   meta["expected_flag"])
