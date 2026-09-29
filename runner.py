@@ -171,8 +171,9 @@ def run_case(case: dict) -> dict:
         "verdict": verdict.as_dict(),
         "answers": [r["answer"][:400] for r in results],
         "latency_ms": results[-1]["latency_ms"] if results else 0,
-        "tokens": sum(r["usage"].get("input_tokens", 0)
-                      + r["usage"].get("output_tokens", 0) for r in results),
+        "tokens": sum((r["usage"] or {}).get("input_tokens", 0)
+                      + (r["usage"] or {}).get("output_tokens", 0)
+                      for r in results),
         "tool_calls": (stand.tool_calls(results[-1].get("trace") or {})
                        if results else []),
     }
@@ -230,7 +231,7 @@ def main() -> int:
           + f"   elapsed {elapsed}s")
     for layer, s in sorted(by_layer.items()):
         print(f"  {layer:<12} {s['passed']}/{s['total']}")
-    failed = console.failed_line(rows, colour)
+    failed = None if brief else console.failed_line(rows, colour)
     if failed:
         print(failed)
 

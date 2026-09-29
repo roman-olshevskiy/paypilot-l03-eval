@@ -16,8 +16,6 @@ def colour_enabled(stream=None) -> bool:
     stream = stream or sys.stdout
     if os.environ.get("NO_COLOR"):
         return False
-    if os.environ.get("FORCE_COLOR"):
-        return True
     return bool(getattr(stream, "isatty", None)) and stream.isatty()
 
 
@@ -44,35 +42,35 @@ def brief_line(row: dict) -> str:
 
 
 def expectation(case: dict) -> str:
-    meta = case["additional_metadata"]
-    name = meta["assertion"]
+    meta = case.get("additional_metadata") or {}
+    name = meta.get("assertion", "")
     expected = case.get("expected_output")
     tolerance = meta.get("tolerance", 0.01)
     target = f"{meta.get('tool')}.{meta.get('field')}"
     if name == "tool_grounded_numeric":
-        return (f"{target} = {meta['expected_number']} +/-{tolerance}, "
+        return (f"{target} = {meta.get('expected_number')} +/-{tolerance}, "
                 f"and the same figure in the answer")
     if name == "tool_result_numeric":
-        return f"{target} = {meta['expected_number']} +/-{tolerance}"
+        return f"{target} = {meta.get('expected_number')} +/-{tolerance}"
     if name == "tool_result_flag":
-        return f"{target} = {meta['expected_flag']!r}"
+        return f"{target} = {meta.get('expected_flag')!r}"
     if name in ("numeric", "number", "amount"):
         return (f"{meta.get('expected_number', expected)} +/-{tolerance} "
                 f"in the answer")
     if name in ("contains", "pattern", "k_of_n"):
         return f"answer contains {expected or meta.get('reference', '')!r}"
     if name == "regex":
-        return f"answer matches {meta['pattern']!r}"
+        return f"answer matches {meta.get('pattern')!r}"
     if name in ("not_contains", "absent"):
-        return f"answer does not contain {meta['forbidden']!r}"
+        return f"answer does not contain {meta.get('forbidden')!r}"
     if name == "not_regex":
-        return f"answer does not match {meta['forbidden_pattern']!r}"
+        return f"answer does not match {meta.get('forbidden_pattern')!r}"
     if name == "exact_tool_calls":
         return f"tools called exactly {meta.get('expected_tool_calls', [])}"
     if name == "tool_call_count":
-        return f"{meta['tool']} called {meta['expected_count']}x"
+        return f"{meta.get('tool')} called {meta.get('expected_count')}x"
     if name == "no_span":
-        return f"no span {meta['forbidden_span']}"
+        return f"no span {meta.get('forbidden_span')}"
     if name == "judge":
         return f"judge rubric: {meta.get('rubric', '')}"
     return str(expected) if expected is not None else name
@@ -116,7 +114,7 @@ def _tool_lines(case: dict, row: dict, columns: int, colour: bool) -> list[str]:
     calls = row.get("tool_calls") or []
     if not calls:
         return _field("tool", "none called", columns, style="dim", colour=colour)
-    asserted = case["additional_metadata"].get("field")
+    asserted = (case.get("additional_metadata") or {}).get("field")
     out = []
     for call in calls:
         out += _field("tool", f"{call['name']}({_pairs(call.get('arguments') or {})})",
@@ -141,7 +139,7 @@ def case_lines(case: dict, row: dict, brief: bool = False,
     verdict = row["verdict"]
     timing = f"{row.get('latency_ms', 0) / 1000:.1f}s, {row.get('tokens', 0)} tokens"
     if row.get("runs", 1) > 1:
-        timing += f", last of {row['runs']} runs shown"
+        timing += f" over {row['runs']} runs, last run shown"
     head = (f"{paint(status, MARK_STYLE[status], colour)}  "
             f"{paint(format(row['id'], '<10'), 'bold', colour)} "
             f"L{verdict['level']} "
