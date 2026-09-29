@@ -3,7 +3,7 @@
 | Кейс | Що перевіряємо | Перевірка | Рівень |
 |---|---|---|---|
 | DIS-006 | інструмент сказав «спір подати не можна» | `tool_result_flag` | 1 |
-| FX-004 | сума 2154.35, допуск 0.02 | `numeric` | 2 |
+| FX-004 | сума 2154.35, допуск 0.02: у полі `final_amount` відповіді `quote_fx` і в тексті бота | `tool_grounded_numeric` | 2 |
 | FX-003-S | у відповіді є «0.9%» | `contains` | 3 |
 | DIS-002-N | бот не каже «you can still dispute» | `not_regex` | 4 |
 | LIM-003 | поле `monthly_remaining_eur` у відповіді інструмента | `tool_result_numeric` | 2 |

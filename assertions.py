@@ -18,6 +18,7 @@ NAME_TO_LEVEL = {
     "contains": 3, "regex": 3, "pattern": 3,
     "not_contains": 4, "absent": 4, "no_span": 4, "not_regex": 4,
     "tool_result_numeric": 2, "tool_result_flag": 1, "tool_call_count": 1,
+    "tool_grounded_numeric": 2,
     "state_row": 1, "tool_sequence": 3,
     "similar": 5,
     "k_of_n": 6,
@@ -204,6 +205,29 @@ def tool_result_numeric(trace: dict, tool: str, field: str,
                        f"{tool}.{field} = {got}" if ok else
                        f"{tool}.{field} = {got}, expected {expected}")
     return Verdict(False, 2, "tool_result_numeric", f"{tool} was never called")
+
+
+def tool_grounded_numeric(trace: dict, answer: str, tool: str, field: str,
+                          expected: float, tolerance: float = 0.01) -> Verdict:
+    name = "tool_grounded_numeric"
+    results = [(s.get("attributes") or {}).get("tool.result") or {}
+               for s in _spans(trace) if s.get("name") == f"tool.{tool}"]
+    if not results:
+        return Verdict(False, 2, name, f"{tool} was never called")
+    returned = [r.get(field) for r in results]
+    grounded = [v for v in returned
+                if isinstance(v, (int, float)) and not isinstance(v, bool)
+                and abs(float(v) - float(expected)) <= tolerance]
+    if not grounded:
+        return Verdict(False, 2, name,
+                       f"{tool}.{field} = {returned}, expected {expected} "
+                       f"+/-{tolerance}")
+    found = _numbers(answer)
+    if not any(abs(n - float(expected)) <= tolerance for n in found):
+        return Verdict(False, 2, name,
+                       f"{tool}.{field} = {grounded[0]}, but the answer does "
+                       f"not carry it; numbers in answer: {found[:8]}")
+    return Verdict(True, 2, name, f"{tool}.{field} = {grounded[0]}")
 
 
 def tool_result_flag(trace: dict, tool: str, field: str, expected) -> Verdict:
