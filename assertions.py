@@ -214,7 +214,7 @@ def tool_grounded_numeric(trace: dict, answer: str, tool: str, field: str,
                for s in _spans(trace) if s.get("name") == f"tool.{tool}"]
     if not results:
         return Verdict(False, 2, name, f"{tool} was never called")
-    returned = [r.get(field) for r in results]
+    returned = [r.get(field) if isinstance(r, dict) else None for r in results]
     grounded = [v for v in returned
                 if isinstance(v, (int, float)) and not isinstance(v, bool)
                 and abs(float(v) - float(expected)) <= tolerance]
