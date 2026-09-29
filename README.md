@@ -37,7 +37,7 @@ Python локально не потрібен: ранер іде в Docker, у �
 | `generate_from_engines.py` | генератор: викликає рушії стенду і друкує кейси з готовими очікуваннями |
 | `ladder.md` | дошка драбини перевірок: рівень перевірки для кожного кейса |
 | `gaps.md` | дошка «чого набір не ловить» |
-| `runner.py`, `loader.py`, `assertions.py`, `stand.py`, `judge.py` | ранер курсу, лише стандартна бібліотека Python |
+| `runner.py`, `loader.py`, `assertions.py`, `stand.py`, `judge.py`, `console.py` | ранер курсу, лише стандартна бібліотека Python |
 | `validate.py` | друкує `set_hash` і покриття набору |
 | `cli.py` | розбирає прапорці запуску, перемикає профіль стенду і викликає ранер |
 | `docker-compose.yml`, `.env.example` | запуск у Docker і шаблон `.env` |
@@ -80,8 +80,23 @@ echo $?
 рядку виводу.
 
 Ранер ставить боту кейси набору по одному, перед кожним скидає базу стенду
-і друкує по рядку на кейс: `PASS` або `FAIL`, рівень перевірки і що саме не
-збіглося. Демо-набір — 14 звернень до бота, близько хвилини. Код
+і друкує блок на кейс: рядок із `PASS` або `FAIL`, рівнем і назвою
+перевірки, а під ним — питання, що очікувалося, кожен виклик інструмента з
+аргументами і результатом, вердикт і початок відповіді бота. У звіт по
+подробиці ходити не треба. Із `--brief` лишається по рядку на кейс. Колір є
+лише в терміналі; змінна `NO_COLOR` його вимикає.
+
+```text
+FAIL  FX-004     L2 generation  tool_grounded_numeric  3.2s, 4876 tokens
+      question  I'm CUS-0007. Convert 2000 EUR to USD. What is the final amount I receive?
+      expected  quote_fx.final_amount = 2154.35 +/-0.02, and the same figure in the answer
+      tool      quote_fx(customer_id=CUS-0007, amount=2000, from_currency=EUR, to_currency=USD)
+                -> final_amount=2157.608696, from_currency=EUR, to_currency=USD, …
+      verdict   quote_fx.final_amount = [2157.608696], expected 2154.35 +/-0.02
+      answer    Here's your conversion breakdown: …
+```
+
+Демо-набір — 14 звернень до бота, близько хвилини. Код
 повернення — 0, якщо пройшли всі кейси, і 1, якщо впав хоч один; у
 PowerShell його показує `$LASTEXITCODE`. Читай його одразу після прогону:
 будь-яка команда між ними його перезапише. І не додавай до прогону `| tee`:
@@ -99,6 +114,7 @@ PowerShell його показує `$LASTEXITCODE`. Читай його одра
 | `--only FX-004,LIM-003` | лише названі кейси |
 | `--set l03` | який набір читати: `sets/<назва>.jsonl` |
 | `--gate daily` | кейси якого гейта: `daily`, `release` або `all`; за замовчуванням `daily` |
+| `--brief` | по рядку на кейс, без подробиць |
 | `--dry-run` | хеш і покриття набору, нічого не викликає |
 
 ```bash
@@ -124,6 +140,7 @@ curl -s -X PUT localhost:8000/api/_test/profile \
 | `SET=l03` | який набір читати: `sets/<SET>.jsonl`; за замовчуванням `l03`. `validate.py` читає ту саму змінну |
 | `CASE=FX-004,LIM-003` | лише названі кейси |
 | `GATE=daily` | лише кейси щоденного гейта, це значення за замовчуванням; `GATE=release` — лише релізні, `GATE=` — усі |
+| `BRIEF=1` | по рядку на кейс, без подробиць |
 
 ```bash
 docker compose run --rm -e CASE=FX-004,LIM-003 eval

@@ -13,6 +13,7 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import assertions as A
+import console
 import stand
 from loader import load, set_hash, summarise
 
@@ -169,6 +170,12 @@ def run_case(case: dict) -> dict:
         "runs": runs,
         "verdict": verdict.as_dict(),
         "answers": [r["answer"][:400] for r in results],
+        "latency_ms": results[-1]["latency_ms"] if results else 0,
+        "tokens": sum((r["usage"] or {}).get("input_tokens", 0)
+                      + (r["usage"] or {}).get("output_tokens", 0)
+                      for r in results),
+        "tool_calls": (stand.tool_calls(results[-1].get("trace") or {})
+                       if results else []),
     }
 
 
@@ -198,15 +205,15 @@ def main() -> int:
           f"prompt {prompt_ver}" + (f"  gate {gate}" if gate else ""))
     print("-" * 72)
 
+    brief = os.environ.get("BRIEF", "") == "1"
+    colour = console.colour_enabled()
     t0 = time.time()
     rows = []
     for case in cases:
         row = run_case(case)
         rows.append(row)
-        mark = ("SKIP" if row.get("skipped")
-                else ("PASS" if row["verdict"]["passed"] else "FAIL"))
-        print(f"{mark}  {row['id']:<10} L{row['verdict']['level']} "
-              f"{row['layer']:<11} {row['verdict']['detail'][:70]}")
+        for line in console.case_lines(case, row, brief=brief, colour=colour):
+            print(line)
     elapsed = round(time.time() - t0, 1)
 
     graded = [r for r in rows if not r.get("skipped")]
@@ -224,6 +231,9 @@ def main() -> int:
           + f"   elapsed {elapsed}s")
     for layer, s in sorted(by_layer.items()):
         print(f"  {layer:<12} {s['passed']}/{s['total']}")
+    failed = None if brief else console.failed_line(rows, colour)
+    if failed:
+        print(failed)
 
     record = {
         "prompt_version": prompt_ver,

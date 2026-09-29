@@ -20,6 +20,8 @@ def parse(argv):
                    help="read sets/<NAME>.jsonl")
     p.add_argument("--gate", choices=["daily", "release", "all"],
                    help="which gate's cases to run, daily by default")
+    p.add_argument("--brief", action="store_true",
+                   help="one line per case, without the case details")
     p.add_argument("--dry-run", action="store_true",
                    help="print the set hash and coverage, call nothing")
     return p.parse_args(argv)
@@ -37,6 +39,9 @@ def main(argv):
         os.environ["SET"] = args.set_name
     if args.gate is not None:
         os.environ["GATE"] = "" if args.gate == "all" else args.gate
+
+    if args.brief:
+        os.environ["BRIEF"] = "1"
 
     if args.dry_run:
         return subprocess.call([sys.executable, str(HERE / "validate.py")])
