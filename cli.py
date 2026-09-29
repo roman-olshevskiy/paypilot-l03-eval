@@ -18,8 +18,8 @@ def parse(argv):
                    help="run only these cases, comma-separated")
     p.add_argument("--set", dest="set_name", metavar="NAME",
                    help="read sets/<NAME>.jsonl")
-    p.add_argument("--gate", metavar="NAME",
-                   help="daily, release or all")
+    p.add_argument("--gate", choices=["daily", "release", "all"],
+                   help="which gate's cases to run, daily by default")
     p.add_argument("--dry-run", action="store_true",
                    help="print the set hash and coverage, call nothing")
     return p.parse_args(argv)
@@ -44,8 +44,8 @@ def main(argv):
     import stand
 
     if args.profile is not None:
-        stand.wait_until_ready()
         try:
+            stand.wait_until_ready()
             stand.set_profile(args.profile)
         except stand.StandError as e:
             print(e)
