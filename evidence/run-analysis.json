@@ -1,0 +1,136 @@
+{
+  "set_hash": "92f5e7f20c48",
+  "runs": [
+    {
+      "report": "golden-clean-20261004T000956.json",
+      "folder": "evidence/runs/20261004T000701419283-clean",
+      "profile": "clean",
+      "set_hash": "92f5e7f20c48",
+      "ran_at": "2026-10-04T00:09:56.726953+00:00",
+      "passed": 30,
+      "total": 30,
+      "failed": [],
+      "tokens": 153560,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ],
+      "agent_chat_requests": 30,
+      "agent_model_calls": 62,
+      "input_tokens": 146450,
+      "output_tokens": 7110,
+      "cost_estimate_usd": 0.182,
+      "raw_sha256": "4607947638279310314ef1e9d058e31650d64550320d3501274364d331a27389"
+    },
+    {
+      "report": "golden-lesson-03-20261004T001243.json",
+      "folder": "evidence/runs/20261004T001041206483-lesson-03",
+      "profile": "lesson-03",
+      "set_hash": "92f5e7f20c48",
+      "ran_at": "2026-10-04T00:12:43.195153+00:00",
+      "passed": 14,
+      "total": 30,
+      "failed": [
+        "FX-004",
+        "FX-002",
+        "FX-003",
+        "FX-003-S",
+        "FX-005",
+        "LIM-003",
+        "DIS-002-N",
+        "DIS-006",
+        "DIS-007",
+        "FX-007",
+        "FX-007-S",
+        "FX-009",
+        "FX-009-S",
+        "FX-011",
+        "CMP-C05",
+        "LIM-HW2-MONTHLY"
+      ],
+      "tokens": 150665,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ],
+      "agent_chat_requests": 30,
+      "agent_model_calls": 61,
+      "input_tokens": 143645,
+      "output_tokens": 7020,
+      "cost_estimate_usd": 0.178745,
+      "raw_sha256": "f05332dc6e5b08ca41aaf34f307bbd25d3e57fe1510a9d88ff4dba26eaea134e"
+    },
+    {
+      "report": "golden-clean-20261004T001507.json",
+      "folder": "evidence/runs/20261004T001325691216-clean",
+      "profile": "clean",
+      "set_hash": "92f5e7f20c48",
+      "ran_at": "2026-10-04T00:15:07.915250+00:00",
+      "passed": 30,
+      "total": 30,
+      "failed": [],
+      "tokens": 154749,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ],
+      "agent_chat_requests": 30,
+      "agent_model_calls": 62,
+      "input_tokens": 147989,
+      "output_tokens": 6760,
+      "cost_estimate_usd": 0.181789,
+      "raw_sha256": "93bc660a782a64af3434d49956b1a8109f3534ad705577c0b7e8a31909857a6a"
+    },
+    {
+      "report": "golden-clean-20261004T001927.json",
+      "folder": "evidence/runs/20261004T001922977755-clean",
+      "profile": "clean",
+      "set_hash": "92f5e7f20c48",
+      "ran_at": "2026-10-04T00:19:27.209922+00:00",
+      "passed": 1,
+      "total": 1,
+      "failed": [],
+      "tokens": 4876,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ],
+      "agent_chat_requests": 1,
+      "agent_model_calls": 2,
+      "input_tokens": 4613,
+      "output_tokens": 263,
+      "cost_estimate_usd": 0.005928,
+      "raw_sha256": "7c250c56cb49c931ea052a4c5ce19dfa0671e5ff0140f6171c7d1b001011ba0d"
+    }
+  ],
+  "transitions": [],
+  "pass_to_fail": [],
+  "fail_to_pass": [],
+  "changed_verdicts": 0,
+  "compared_cases": 30,
+  "forecast": {
+    "commit": "1768082aba930dd6a08fea499c3a967de57d1222",
+    "committed_at": "2026-10-04T00:12:01+00:00",
+    "repository": "https://github.com/roman-olshevskiy/paypilot-hw2",
+    "line": "For currency conversion answers, state only the pre-spread gross amount as the amount received and do not repeat the after-spread final amount.",
+    "predicted_failures": [
+      "FX-004",
+      "FX-002",
+      "FX-003",
+      "FX-005",
+      "FX-007",
+      "FX-009",
+      "FX-011",
+      "CMP-C05"
+    ],
+    "set_hash": "92f5e7f20c48"
+  },
+  "pricing": {
+    "model": "Claude Haiku 4.5",
+    "input_per_million_usd": 1,
+    "output_per_million_usd": 5,
+    "checked_on": "2026-10-04",
+    "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+    "billing_verified": true,
+    "billing_verification_scope": "Aggregate monthly increase, rounded to cents",
+    "billing_evidence": "evidence/billing-reconciliation.json"
+  },
+  "series_cost_estimate_usd": 0.542534,
+  "total_cost_including_controls_usd": 0.548462
+}

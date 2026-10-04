@@ -1,0 +1,9 @@
+{
+  "confirmed_on": "2026-10-04",
+  "source": "Direct confirmation in the homework conversation",
+  "observed_cost_this_month_increase_usd": 0.55,
+  "calculated_total_including_control_usd": 0.548462,
+  "calculated_rounded_to_cents_usd": 0.55,
+  "matches_at_display_precision": true,
+  "verification_scope": "Aggregate monthly cost increase for the HW2 series including restoration control; not per-request invoice or cache-line reconciliation"
+}

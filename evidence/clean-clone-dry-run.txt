@@ -1,0 +1,41 @@
+ Network paypilot-l03-hw2-verify_default Creating 
+ Network paypilot-l03-hw2-verify_default Creating 
+ Network paypilot-l03-hw2-verify_default Created 
+ Network paypilot-l03-hw2-verify_default Created 
+ Container paypilot-l03-hw2-verify-eval-run-492e353aa555 Creating 
+ Container paypilot-l03-hw2-verify-eval-run-492e353aa555 Created 
+set golden.jsonl set_hash 92f5e7f20c48
+{
+  "cases": 35,
+  "layers": {
+    "action": 7,
+    "generation": 28
+  },
+  "oracles": {
+    "corpus": 1,
+    "engine": 29,
+    "human": 5
+  },
+  "sources": {
+    "complaint": 7,
+    "edge": 16,
+    "engine": 12
+  },
+  "severities": {
+    "critical": 7,
+    "high": 28
+  },
+  "ladder_levels": [
+    1,
+    2,
+    3,
+    4,
+    7
+  ],
+  "gates": {
+    "daily": 30,
+    "release": 5
+  },
+  "human_oracle_pct": 14.3,
+  "severity_filled_pct": 100.0
+}

@@ -1,0 +1,75 @@
+{
+  "profile": "lesson-03",
+  "set_hash": "92f5e7f20c48",
+  "isolated_mutant_runs": false,
+  "defects": [
+    {
+      "id": "D19",
+      "caught": true,
+      "case_id": "DIS-006",
+      "request_id": "c6bfba04c3e74d99",
+      "observed": {
+        "eligible": true,
+        "reason_code": "duplicate_charge",
+        "window_days": 90,
+        "tx_date": "2026-07-14",
+        "as_of": "2026-09-15",
+        "deadline": "2026-10-12",
+        "checks": {
+          "reason_code": "pass",
+          "tx_status": "pass",
+          "window": "pass",
+          "compliance_hold": "pass"
+        }
+      },
+      "expected": "eligible=false, 60-day window from clean engine"
+    },
+    {
+      "id": "D20",
+      "caught": true,
+      "case_id": "FX-007-S",
+      "request_id": "24ec3902f3024873",
+      "observed": 1.5,
+      "expected": 0.9
+    },
+    {
+      "id": "D21",
+      "caught": true,
+      "case_id": "FX-007",
+      "request_id": "72e0baa663e64864",
+      "observed_spread": 0.016304,
+      "full_spread_at_observed_wrong_rate": 16.320652170000002,
+      "description": "Observed deduction applies only to 1 EUR excess. D20 and D21 are simultaneous; this payload demonstrates both symptoms, not isolated causal runs."
+    },
+    {
+      "id": "D22",
+      "caught": true,
+      "case_id": "LIM-003",
+      "request_id": "4072d64e22a041a5",
+      "observed": 95086.0,
+      "daily": 95086.0,
+      "expected": 964666
+    },
+    {
+      "id": "D26",
+      "caught": true,
+      "case_id": "DIS-007",
+      "request_id": "0600d9d47bf24821",
+      "observed": {
+        "eligible": true,
+        "reason_code": "goods_not_received",
+        "window_days": 90,
+        "tx_date": "2026-08-16",
+        "as_of": "2026-09-15",
+        "deadline": "2026-11-14",
+        "checks": {
+          "reason_code": "pass",
+          "tx_status": "pass",
+          "window": "pass",
+          "compliance_hold": "pass"
+        }
+      },
+      "expected": "eligible=false from clean engine with seed compliance_hold=True"
+    }
+  ]
+}
