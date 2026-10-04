@@ -6,6 +6,14 @@
 
 Відтворення у чистому кіті: [RUNNING.md](RUNNING.md). Покажчик: [SUBMISSION.md](SUBMISSION.md).
 
+Команда baseline з каталогу кіту після підготовки за RUNNING.md:
+
+~~~powershell
+$env:HW2_RUN_PROFILE='clean'
+$env:HW2_RUN_LABEL='baseline-clean'
+python -m unittest discover -s tests -p test_live_hw2.py -v
+~~~
+
 ## Скарги
 
 | Скарга | Власний кейс | Клієнт / операція та уточнення | Oracle | Чому не готовий demo |
