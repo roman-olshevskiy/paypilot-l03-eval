@@ -1,0 +1,6 @@
+test_readiness_reset_clock_and_runtime_guard (test_preflight_hw2.PreflightHW2.test_readiness_reset_clock_and_runtime_guard) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 3.248s
+
+OK

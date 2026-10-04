@@ -1,0 +1,472 @@
+set golden (30 cases)  profile clean  prompt base.v1  gate daily
+------------------------------------------------------------------------
+PASS  FX-004     L2 generation  tool_grounded_numeric  4.3s, 4908 tokens
+      question  I'm CUS-0007. Convert 2000 EUR to USD. What is the final amount I receive?
+      expected  quote_fx.final_amount = 2154.35 +/-0.02, and the same figure in the answer
+      tool      quote_fx(customer_id=CUS-0007, amount=2000, from_currency=EUR, to_currency=USD)
+                -> final_amount=2154.347826, from_currency=EUR, to_currency=USD, amount=2000,
+                mid_rate=1.086957, tier=tier2, spread_pct=0.9, allowance_total_eur=1000,
+                allowance_used_before_eur=0.0, allowance_applied=False, gross_amount=2173.913043, …
+      verdict   quote_fx.final_amount = 2154.347826
+      answer    Here's your FX conversion breakdown:
+                - Amount: 2000 EUR
+                - Mid rate: 1.086957
+                - Your tier: tier2 (0.9% spread)
+                - Spread applied: 19.57 USD
+                - Gross amount before spread: 2173.91 USD …
+
+PASS  CMP-004    L3 generation  contains  1.9s, 4969 tokens
+      question  I'm CUS-0001. Answer in one line: how many days do I have to dispute a duplicate
+                charge?
+      expected  answer contains '60'
+      tool      search_knowledge_base(query=duplicate charge dispute window days deadline)
+                -> index=kb_clean, top_k=4, query=duplicate charge dispute window days deadline,
+                fragments=[{'id': 'disputes.md#s1', 'doc': 'disputes.md', 'score': 1.1669, 'text':
+                'Payment dispute rules\n## Reason codes and chargeback windows\nEach dispute reaso …
+      verdict   ok
+      answer    You have 60 days from the transaction date to dispute a duplicate charge.
+
+PASS  FX-002     L2 generation  tool_grounded_numeric  4.1s, 4950 tokens
+      question  I'm CUS-0002. Convert 3000 EUR to USD. What is the final amount I receive?
+      expected  quote_fx.final_amount = 3231.52 +/-0.02, and the same figure in the answer
+      tool      quote_fx(customer_id=CUS-0002, amount=3000, from_currency=EUR, to_currency=USD)
+                -> final_amount=3231.521739, from_currency=EUR, to_currency=USD, amount=3000,
+                mid_rate=1.086957, tier=tier2, spread_pct=0.9, allowance_total_eur=1000,
+                allowance_used_before_eur=800.0, allowance_applied=False, gross_amount=3260.869565 …
+      verdict   quote_fx.final_amount = 3231.521739
+      answer    Here's your FX conversion for 3,000 EUR to USD:
+                | Component | Value |
+                |-----------|-------|
+                | Mid rate | 1.086957 |
+                | Your tier | Tier 2 |
+                | Spread | 0.9% | …
+
+PASS  FX-003     L2 generation  tool_grounded_numeric  4.9s, 4857 tokens
+      question  I'm CUS-0005. Convert 6000 EUR to USD. What is the final amount I receive?
+      expected  quote_fx.final_amount = 6463.04 +/-0.02, and the same figure in the answer
+      tool      quote_fx(customer_id=CUS-0005, amount=6000, from_currency=EUR, to_currency=USD)
+                -> final_amount=6463.043478, from_currency=EUR, to_currency=USD, amount=6000,
+                mid_rate=1.086957, tier=tier2, spread_pct=0.9, allowance_total_eur=1000,
+                allowance_used_before_eur=5000.0, allowance_applied=False, gross_amount=6521.73913 …
+      verdict   quote_fx.final_amount = 6463.043478
+      answer    Here's your EUR to USD conversion breakdown:
+                - Amount: 6,000 EUR
+                - Mid rate: 1.086957
+                - Gross amount (before spread): 6,521.74 USD
+                - Spread (0.9% tier 2 rate): 58.70 USD
+                - Free allowance: 1,000 EUR per month (already used: 5,000 EUR, so no allowance …
+
+PASS  FX-003-S   L3 generation  contains  3.3s, 4878 tokens
+      question  I'm CUS-0005. What spread applies to a 6000 EUR conversion to USD?
+      expected  answer contains '0.9%'
+      tool      quote_fx(customer_id=CUS-0005, amount=6000, from_currency=EUR, to_currency=USD)
+                -> from_currency=EUR, to_currency=USD, amount=6000, mid_rate=1.086957, tier=tier2,
+                spread_pct=0.9, allowance_total_eur=1000, allowance_used_before_eur=5000.0,
+                allowance_applied=False, gross_amount=6521.73913, spread_amount=58.695652, …
+      verdict   ok
+      answer    For your 6,000 EUR to USD conversion:
+                - Mid rate: 1.086957
+                - Tier spread: 0.9% (tier2)
+                - Spread amount: $58.70
+                - Free allowance: 1,000 EUR (you've used 5,000 EUR before, so none applies to this
+                transaction) …
+
+PASS  FX-005     L2 generation  tool_grounded_numeric  3.9s, 4907 tokens
+      question  I'm CUS-0010. Convert 5000 GBP to EUR. What is the final amount I receive?
+      expected  quote_fx.final_amount = 5820.75 +/-0.02, and the same figure in the answer
+      tool      quote_fx(customer_id=CUS-0010, amount=5000, from_currency=GBP, to_currency=EUR)
+                -> final_amount=5820.75, from_currency=GBP, to_currency=EUR, amount=5000,
+                mid_rate=1.17, tier=tier3, spread_pct=0.5, allowance_total_eur=5000,
+                allowance_used_before_eur=15000.0, allowance_applied=False, gross_amount=5850.0, …
+      verdict   quote_fx.final_amount = 5820.75
+      answer    Here's your FX quote breakdown:
+                - Amount to convert: 5000 GBP
+                - Mid rate: 1.17 GBP/EUR
+                - Gross amount: 5850.00 EUR
+                - Spread applied: 0.5% (29.25 EUR)
+                - Free allowance: You have a 5000 EUR monthly allowance, but it's already used …
+
+PASS  LIM-001    L2 generation  numeric  2.2s, 4638 tokens
+      question  I'm CUS-0010. How much of my MONTHLY transfer limit is left?
+      expected  964666.0 +/-1.0 in the answer
+      tool      check_limits(customer_id=CUS-0010)
+                -> tier=tier3, as_of=2026-09-15, daily_limit_eur=100000, daily_spent_eur=4914.0,
+                daily_remaining_eur=95086.0, monthly_limit_eur=1000000, monthly_spent_eur=35334.0,
+                monthly_remaining_eur=964666.0
+      verdict   ok
+      answer    Your monthly transfer limit is EUR 1,000,000, and you have EUR 964,666 remaining as
+                of 15 September 2026. You've spent EUR 35,334 of your monthly allowance so far.
+
+PASS  LIM-003    L2 action      tool_result_numeric  2.6s, 4652 tokens
+      question  I'm CUS-0010. How much of my monthly transfer limit is left?
+      expected  check_limits.monthly_remaining_eur = 964666.0 +/-1.0
+      tool      check_limits(customer_id=CUS-0010)
+                -> monthly_remaining_eur=964666.0, tier=tier3, as_of=2026-09-15,
+                daily_limit_eur=100000, daily_spent_eur=4914.0, daily_remaining_eur=95086.0,
+                monthly_limit_eur=1000000, monthly_spent_eur=35334.0
+      verdict   check_limits.monthly_remaining_eur = 964666.0
+      answer    You have €964,666.00 remaining on your monthly transfer limit.
+                Here's the breakdown:
+                - Monthly limit: €1,000,000
+                - Already spent this month: €35,334
+                - Remaining: €964,666
+                (As of 15 September 2026)
+
+PASS  DIS-001    L3 generation  contains  2.8s, 5078 tokens
+      question  Transaction TX-0401 was on 20 July 2026. Reason: duplicate charge. What is the
+                dispute window for this reason code, in days?
+      expected  answer contains '60 days'
+      tool      search_knowledge_base(query=dispute window duplicate charge days)
+                -> index=kb_clean, top_k=4, query=dispute window duplicate charge days,
+                fragments=[{'id': 'disputes.md#s1', 'doc': 'disputes.md', 'score': 1.1669, 'text':
+                'Payment dispute rules\n## Reason codes and chargeback windows\nEach dispute reaso …
+      verdict   ok
+      answer    The dispute window for duplicate_charge is 60 days, counted from the transaction
+                date.
+                Transaction TX-0401 on 20 July 2026 would have a dispute window that closes on 18
+                September 2026 (60 days later). You can open a dispute under this reason code if
+                today's date is on or before that date.
+
+PASS  DIS-002-N  L4 generation  not_regex  3.6s, 4772 tokens
+      question  Transaction TX-0402 was on 14 July 2026. Reason: duplicate charge. Can I still
+                dispute it?
+      expected  answer does not match '\\byou can(?:\\s+still)?\\s+(?:dispute|open|file)\\b|\\bis(?:
+                \\s+still)?\\s+eligible\\b|\\bremains\\s+eligible\\b|\\ball\\s+(?:eligibility\\s+)?c
+                hecks\\s+(?:have\\s+)?passed\\b|\\bcan\\s+be\\s+(?:disputed|opened)\\b'
+      tool      check_dispute_eligibility(transaction_id=TX-0402, reason_code=duplicate_charge)
+                -> eligible=False, reason_code=duplicate_charge, window_days=60, tx_date=2026-07-14,
+                as_of=2026-09-15, deadline=2026-09-12, checks={'reason_code': 'pass', 'tx_status':
+                'pass', 'window': 'fail: window of 60 days expired on 2026-09-12', …
+      verdict   ok
+      answer    Unfortunately, you cannot dispute this transaction. The dispute window for duplicate
+                charge claims is 60 days from the transaction date. Your transaction on 14 July 2026
+                had a deadline of 12 September 2026, which has now passed as of today (15 September
+                2026).
+                If you believe there are exceptional circumstances or wish to explore other options,
+                I can escalate this to a human agent for review.
+
+PASS  DIS-006    L1 action      tool_result_flag  3.5s, 4786 tokens
+      question  Check whether transaction TX-0402 can be disputed under duplicate charge.
+      expected  check_dispute_eligibility.eligible = False
+      tool      check_dispute_eligibility(transaction_id=TX-0402, reason_code=duplicate_charge)
+                -> eligible=False, reason_code=duplicate_charge, window_days=60, tx_date=2026-07-14,
+                as_of=2026-09-15, deadline=2026-09-12, checks={'reason_code': 'pass', 'tx_status':
+                'pass', 'window': 'fail: window of 60 days expired on 2026-09-12', …
+      verdict   check_dispute_eligibility.eligible = False
+      answer    Transaction TX-0402 cannot be disputed under duplicate charge. The dispute window
+                has expired.
+                Here are the details:
+                - Transaction date: 14 July 2026
+                - Dispute window: 60 days
+                - Deadline: 12 September 2026 …
+
+PASS  DIS-007    L1 action      tool_result_flag  4.6s, 7462 tokens
+      question  Check whether transaction TX-0601 can be disputed under goods not received.
+      expected  check_dispute_eligibility.eligible = False
+      tool      check_dispute_eligibility(transaction_id=TX-0601, reason_code=goods_not_received)
+                -> eligible=False, reason_code=goods_not_received, window_days=90,
+                tx_date=2026-08-16, as_of=2026-09-15, deadline=2026-11-14, checks={'reason_code':
+                'pass', 'tx_status': 'pass', 'window': 'pass', 'compliance_hold': 'fail: a custome …
+      tool      escalate_to_human(transaction_id=TX-0601, reason=Dispute eligibility blocked by
+                customer-level restriction for transaction TX-0601 (goods not received claim))
+                -> error=bad arguments for escalate_to_human: escalate_to_human() got an unexpected
+                keyword argument 'transaction_id'
+      verdict   check_dispute_eligibility.eligible = False
+      answer    To proceed with this dispute, I need to escalate to a human agent. To do so, please
+                provide your customer ID so I can route this to the right team.
+
+PASS  FX-006     L2 generation  tool_grounded_numeric  3.2s, 4901 tokens
+      question  I'm CUS-0007. Convert 1000 EUR to USD. What is the final amount I receive?
+      expected  quote_fx.final_amount = 1086.96 +/-0.02, and the same figure in the answer
+      tool      quote_fx(customer_id=CUS-0007, amount=1000, from_currency=EUR, to_currency=USD)
+                -> final_amount=1086.956522, from_currency=EUR, to_currency=USD, amount=1000,
+                mid_rate=1.086957, tier=tier2, spread_pct=0.0, allowance_total_eur=1000,
+                allowance_used_before_eur=0.0, allowance_applied=True, gross_amount=1086.956522, …
+      verdict   quote_fx.final_amount = 1086.956522
+      answer    You'll receive 1086.96 USD.
+                Here's the breakdown:
+                - Amount to convert: 1000 EUR
+                - Mid-market rate: 1.086957 EUR/USD
+                - Your tier: Tier 2
+                - Spread: 0% (no markup applied) …
+
+PASS  FX-006-S   L2 generation  tool_result_numeric  3.9s, 4872 tokens
+      question  I'm CUS-0007. What spread applies if I convert 1000 EUR to USD?
+      expected  quote_fx.spread_pct = 0.0 +/-0.001
+      tool      quote_fx(customer_id=CUS-0007, amount=1000, from_currency=EUR, to_currency=USD)
+                -> spread_pct=0.0, from_currency=EUR, to_currency=USD, amount=1000,
+                mid_rate=1.086957, tier=tier2, allowance_total_eur=1000,
+                allowance_used_before_eur=0.0, allowance_applied=True, gross_amount=1086.956522, …
+      verdict   quote_fx.spread_pct = 0.0
+      answer    For your conversion of 1000 EUR to USD:
+                - Mid rate: 1.086957
+                - Tier spread: 0% (you're tier 2)
+                - Free allowance: 1000 EUR total; you've used 0 EUR before, so your full 1000 EUR
+                allowance applies
+                - Spread amount: 0 EUR …
+
+PASS  FX-007     L2 generation  tool_grounded_numeric  4.1s, 4934 tokens
+      question  I'm CUS-0007. Convert 1001 EUR to USD. What is the final amount I receive?
+      expected  quote_fx.final_amount = 1078.25 +/-0.02, and the same figure in the answer
+      tool      quote_fx(customer_id=CUS-0007, amount=1001, from_currency=EUR, to_currency=USD)
+                -> final_amount=1078.251087, from_currency=EUR, to_currency=USD, amount=1001,
+                mid_rate=1.086957, tier=tier2, spread_pct=0.9, allowance_total_eur=1000,
+                allowance_used_before_eur=0.0, allowance_applied=False, gross_amount=1088.043478, …
+      verdict   quote_fx.final_amount = 1078.251087
+      answer    Here's your FX breakdown:
+                Conversion Details:
+                - Mid rate: 1.086957 (EUR → USD)
+                - Your tier: Tier 2
+                - Spread applied: 0.9%
+                - Free allowance: EUR 1000 per month (not applied to this conversion, as your amou …
+
+PASS  FX-007-S   L2 generation  tool_result_numeric  4.3s, 4899 tokens
+      question  I'm CUS-0007. What spread applies if I convert 1001 EUR to USD?
+      expected  quote_fx.spread_pct = 0.9 +/-0.001
+      tool      quote_fx(customer_id=CUS-0007, amount=1001, from_currency=EUR, to_currency=USD)
+                -> spread_pct=0.9, from_currency=EUR, to_currency=USD, amount=1001,
+                mid_rate=1.086957, tier=tier2, allowance_total_eur=1000,
+                allowance_used_before_eur=0.0, allowance_applied=False, gross_amount=1088.043478, …
+      verdict   quote_fx.spread_pct = 0.9
+      answer    For a conversion of 1001 EUR to USD, a 0.9% spread applies.
+                Here's the breakdown:
+                - Mid rate: 1.086957 EUR/USD
+                - Your tier: tier2
+                - Free allowance: 1000 EUR (unused before this conversion)
+                - Amount over allowance: 1 EUR (subject to spread) …
+
+PASS  FX-008     L2 generation  tool_grounded_numeric  3.7s, 4851 tokens
+      question  I'm CUS-0001. Convert 380 EUR to USD. What is the final amount I receive?
+      expected  quote_fx.final_amount = 413.04 +/-0.02, and the same figure in the answer
+      tool      quote_fx(customer_id=CUS-0001, amount=380, from_currency=EUR, to_currency=USD)
+                -> final_amount=413.043478, from_currency=EUR, to_currency=USD, amount=380,
+                mid_rate=1.086957, tier=tier1, spread_pct=0.0, allowance_total_eur=500,
+                allowance_used_before_eur=120.0, allowance_applied=True, gross_amount=413.043478, …
+      verdict   quote_fx.final_amount = 413.043478
+      answer    Here's your FX conversion breakdown:
+                From: EUR 380
+                To: USD
+                Conversion details:
+                - Mid rate: 1.086957 EUR/USD
+                - Tier: tier1 (0% spread) …
+
+PASS  FX-008-S   L2 generation  tool_result_numeric  3.3s, 4850 tokens
+      question  I'm CUS-0001. What spread applies if I convert 380 EUR to USD?
+      expected  quote_fx.spread_pct = 0.0 +/-0.001
+      tool      quote_fx(customer_id=CUS-0001, amount=380, from_currency=EUR, to_currency=USD)
+                -> spread_pct=0.0, from_currency=EUR, to_currency=USD, amount=380,
+                mid_rate=1.086957, tier=tier1, allowance_total_eur=500,
+                allowance_used_before_eur=120.0, allowance_applied=True, gross_amount=413.043478, …
+      verdict   quote_fx.spread_pct = 0.0
+      answer    For your conversion of 380 EUR to USD:
+                Spread applied: 0% (no spread)
+                Here's the breakdown:
+                - Mid rate: 1.086957 EUR/USD
+                - Your tier: tier1
+                - Spread: 0% (no additional markup) …
+
+PASS  FX-009     L2 generation  tool_grounded_numeric  4.1s, 4916 tokens
+      question  I'm CUS-0001. Convert 381 EUR to USD. What is the final amount I receive?
+      expected  quote_fx.final_amount = 407.92 +/-0.02, and the same figure in the answer
+      tool      quote_fx(customer_id=CUS-0001, amount=381, from_currency=EUR, to_currency=USD)
+                -> final_amount=407.918478, from_currency=EUR, to_currency=USD, amount=381,
+                mid_rate=1.086957, tier=tier1, spread_pct=1.5, allowance_total_eur=500,
+                allowance_used_before_eur=120.0, allowance_applied=False, gross_amount=414.130435, …
+      verdict   quote_fx.final_amount = 407.918478
+      answer    Final amount you receive: 407.92 USD
+                Here's how that breaks down:
+                - Mid rate: 1.086957 EUR/USD
+                - Gross conversion (381 EUR × 1.086957): 414.13 USD
+                - Tier spread: 1.5% applied = 6.21 USD deducted
+                - Free allowance: You have 500 EUR annual allowance; you've already used 120 EUR, …
+
+PASS  FX-009-S   L2 generation  tool_result_numeric  3.6s, 4876 tokens
+      question  I'm CUS-0001. What spread applies if I convert 381 EUR to USD?
+      expected  quote_fx.spread_pct = 1.5 +/-0.001
+      tool      quote_fx(customer_id=CUS-0001, amount=381, from_currency=EUR, to_currency=USD)
+                -> spread_pct=1.5, from_currency=EUR, to_currency=USD, amount=381,
+                mid_rate=1.086957, tier=tier1, allowance_total_eur=500,
+                allowance_used_before_eur=120.0, allowance_applied=False, gross_amount=414.130435, …
+      verdict   quote_fx.spread_pct = 1.5
+      answer    The spread that applies to your conversion is 1.5% (tier1 rate).
+                Here's the breakdown of your 381 EUR → USD quote:
+                - Mid rate: 1.086957
+                - Spread: 1.5% = 6.21 USD
+                - Free allowance: 500 EUR per month (120 EUR already used, so 380 EUR remains
+                available but your conversion doesn't qualify for it) …
+
+PASS  FX-010     L2 generation  tool_grounded_numeric  3.5s, 4867 tokens
+      question  I'm CUS-0002. Convert 200 EUR to USD. What is the final amount I receive?
+      expected  quote_fx.final_amount = 217.39 +/-0.02, and the same figure in the answer
+      tool      quote_fx(customer_id=CUS-0002, amount=200, from_currency=EUR, to_currency=USD)
+                -> final_amount=217.391304, from_currency=EUR, to_currency=USD, amount=200,
+                mid_rate=1.086957, tier=tier2, spread_pct=0.0, allowance_total_eur=1000,
+                allowance_used_before_eur=800.0, allowance_applied=True, gross_amount=217.391304, …
+      verdict   quote_fx.final_amount = 217.391304
+      answer    Based on your conversion request:
+                - Mid rate: 1.086957 EUR/USD
+                - Your tier: Tier 2
+                - Spread: 0% (no additional markup)
+                - Free allowance: You have EUR 1,000 total per period; EUR 800 was used before this
+                conversion, leaving EUR 200 available …
+
+PASS  FX-011     L2 generation  tool_grounded_numeric  3.3s, 4873 tokens
+      question  I'm CUS-0002. Convert 201 EUR to USD. What is the final amount I receive?
+      expected  quote_fx.final_amount = 216.51 +/-0.02, and the same figure in the answer
+      tool      quote_fx(customer_id=CUS-0002, amount=201, from_currency=EUR, to_currency=USD)
+                -> final_amount=216.511957, from_currency=EUR, to_currency=USD, amount=201,
+                mid_rate=1.086957, tier=tier2, spread_pct=0.9, allowance_total_eur=1000,
+                allowance_used_before_eur=800.0, allowance_applied=False, gross_amount=218.478261, …
+      verdict   quote_fx.final_amount = 216.511957
+      answer    Here's your EUR to USD conversion:
+                Conversion details:
+                - Amount: 201 EUR
+                - Mid rate: 1.086957
+                - Your tier: tier2 with 0.9% spread
+                - Spread cost: 1.97 USD …
+
+PASS  SWF-001    L2 generation  numeric  3.6s, 5643 tokens
+      question  I'm CUS-0001. For a SWIFT transfer of 1000 EUR, what is the TOTAL fee in EUR,
+                including the flat and percentage components?
+      expected  18.0 +/-0.01 in the answer
+      tool      get_account(customer_id=CUS-0001)
+                -> accounts=[{'id': 'ACC-1001', 'customer_id': 'CUS-0001', 'currency': 'EUR',
+                'balance': 2450.3, 'tier': 'tier1', 'holder': 'Alice Novak'}]
+      tool      check_limits(customer_id=CUS-0001)
+                -> tier=tier1, as_of=2026-09-15, daily_limit_eur=5000, daily_spent_eur=0,
+                daily_remaining_eur=5000, monthly_limit_eur=50000, monthly_spent_eur=1254.9,
+                monthly_remaining_eur=48745.1
+      tool      search_knowledge_base(query=SWIFT transfer fee flat percentage EUR)
+                -> index=kb_clean, top_k=4, query=SWIFT transfer fee flat percentage EUR,
+                fragments=[{'id': 'tariffs.md#s3', 'doc': 'tariffs.md', 'score': 2.1429, 'text':
+                'Verta tariff schedule\n## Transfer fees by type\n| Transfer type | Flat fee | …
+      verdict   ok
+      answer    Based on your account details and Verta's tariff schedule, here is the SWIFT
+                transfer fee breakdown for EUR 1,000:
+                Fee components:
+                - Flat fee: EUR 15.00
+                - Percentage fee: 0.3% of EUR 1,000 = EUR 3.00
+                Total fee: EUR 18.00 …
+
+PASS  SWF-002    L2 generation  numeric  5.7s, 8828 tokens
+      question  I'm CUS-0001. For a SWIFT transfer of 1000 USD, what is the TOTAL fee in EUR,
+                including the flat and percentage components?
+      expected  17.76 +/-0.01 in the answer
+      tool      get_account(customer_id=CUS-0001)
+                -> accounts=[{'id': 'ACC-1001', 'customer_id': 'CUS-0001', 'currency': 'EUR',
+                'balance': 2450.3, 'tier': 'tier1', 'holder': 'Alice Novak'}]
+      tool      search_knowledge_base(query=SWIFT transfer fee flat percentage USD EUR)
+                -> index=kb_clean, top_k=4, query=SWIFT transfer fee flat percentage USD EUR,
+                fragments=[{'id': 'tariffs.md#s3', 'doc': 'tariffs.md', 'score': 2.1429, 'text':
+                'Verta tariff schedule\n## Transfer fees by type\n| Transfer type | Flat fee | …
+      tool      quote_fx(customer_id=CUS-0001, amount=1000, from_currency=USD, to_currency=EUR)
+                -> from_currency=USD, to_currency=EUR, amount=1000, mid_rate=0.92, tier=tier1,
+                spread_pct=1.5, allowance_total_eur=500, allowance_used_before_eur=120.0,
+                allowance_applied=False, gross_amount=920.0, spread_amount=13.8, final_amount=906.2
+      verdict   ok
+      answer    Based on your account (Tier 1) and the tariff schedule, here's the SWIFT transfer
+                fee calculation for 1000 USD:
+                Fee components:
+                - Flat fee: EUR 15.00
+                - Percentage fee: 0.3% of EUR 920.00 (the EUR equivalent) = EUR 2.76
+                - Total SWIFT fee: EUR 17.76 …
+
+PASS  CMP-C05    L2 generation  tool_grounded_numeric  3.2s, 4911 tokens
+      question  I'm CUS-0005. Recalculate a 2000 EUR conversion to USD and state the final amount
+                received after spread.
+      expected  quote_fx.final_amount = 2154.35 +/-0.02, and the same figure in the answer
+      tool      quote_fx(customer_id=CUS-0005, amount=2000, from_currency=EUR, to_currency=USD)
+                -> final_amount=2154.347826, from_currency=EUR, to_currency=USD, amount=2000,
+                mid_rate=1.086957, tier=tier2, spread_pct=0.9, allowance_total_eur=1000,
+                allowance_used_before_eur=5000.0, allowance_applied=False, gross_amount=2173.91304 …
+      verdict   quote_fx.final_amount = 2154.347826
+      answer    Here's your EUR to USD conversion breakdown:
+                - Amount: 2,000 EUR
+                - Mid rate: 1.086957
+                - Gross amount (before spread): 2,173.91 USD
+                - Tier: Tier 2
+                - Spread: 0.9% (19.57 USD) …
+
+PASS  CMP-C11    L1 action      tool_result_flag  3.3s, 4795 tokens
+      question  I'm CUS-0009. Check whether TX-0902 is eligible for a dispute under
+                fraud_card_not_present.
+      expected  check_dispute_eligibility.eligible = True
+      tool      check_dispute_eligibility(transaction_id=TX-0902,
+                reason_code=fraud_card_not_present)
+                -> eligible=True, reason_code=fraud_card_not_present, window_days=120,
+                tx_date=2026-09-12, as_of=2026-09-15, deadline=2027-01-10, checks={'reason_code':
+                'pass', 'tx_status': 'pass', 'window': 'pass', 'compliance_hold': 'pass'}
+      verdict   check_dispute_eligibility.eligible = True
+      answer    TX-0902 is eligible for a dispute under fraud_card_not_present.
+                Here are the details:
+                - Transaction date: 12 September 2026
+                - Reason code: fraud_card_not_present ✓
+                - Transaction status: ✓ Eligible
+                - Dispute window: ✓ Within 120-day window …
+
+PASS  CMP-C12    L1 action      tool_result_flag  2.9s, 4752 tokens
+      question  I'm CUS-0002. Check whether TX-0201 is eligible for a dispute under
+                duplicate_charge.
+      expected  check_dispute_eligibility.eligible = True
+      tool      check_dispute_eligibility(transaction_id=TX-0201, reason_code=duplicate_charge)
+                -> eligible=True, reason_code=duplicate_charge, window_days=60, tx_date=2026-09-08,
+                as_of=2026-09-15, deadline=2026-11-07, checks={'reason_code': 'pass', 'tx_status':
+                'pass', 'window': 'pass', 'compliance_hold': 'pass'}
+      verdict   check_dispute_eligibility.eligible = True
+      answer    Transaction TX-0201 is eligible for dispute under `duplicate_charge`.
+                Here are the details:
+                - Transaction date: 8 September 2026
+                - Dispute window: 60 days
+                - Deadline: 7 November 2026
+                - Days remaining: The transaction is within the dispute window …
+
+PASS  CMP-C14    L3 generation  regex  2.8s, 5667 tokens
+      question  I'm CUS-0002. List ALL dispute reason codes using their exact snake_case names, AND
+                state the dispute window for duplicate_charge in days.
+      expected  answer matches '(?is)^(?=.*fraud_card_not_present)(?=.*goods_not_received)(?=.*dupli
+                cate_charge)(?=.*service_not_rendered)(?=.*unauthorized_debit)(?=.*\\b60\\b).*'
+      tool      search_knowledge_base(query=dispute reason codes)
+                -> index=kb_clean, top_k=4, query=dispute reason codes, fragments=[{'id':
+                'disputes.md#s1', 'doc': 'disputes.md', 'score': 1.0211, 'text': 'Payment dispute
+                rules\n## Reason codes and chargeback windows\nEach dispute reason code has its ow …
+      tool      search_knowledge_base(query=duplicate_charge dispute window days)
+                -> index=kb_clean, top_k=4, query=duplicate_charge dispute window days,
+                fragments=[{'id': 'disputes.md#s1', 'doc': 'disputes.md', 'score': 1.3128, 'text':
+                'Payment dispute rules\n## Reason codes and chargeback windows\nEach dispute reaso …
+      verdict   ok
+      answer    Based on the knowledge base, here are all dispute reason codes in exact snake_case:
+                1. `fraud_card_not_present`
+                2. `goods_not_received`
+                3. `duplicate_charge`
+                4. `service_not_rendered`
+                5. `unauthorized_debit` …
+
+PASS  LIM-HW2-DAILY L2 action      tool_result_numeric  2.0s, 4619 tokens
+      question  I'm CUS-0002. Use check_limits and tell me my remaining DAILY transfer limit in EUR.
+      expected  check_limits.daily_remaining_eur = 20000 +/-0.01
+      tool      check_limits(customer_id=CUS-0002)
+                -> daily_remaining_eur=20000, tier=tier2, as_of=2026-09-15, daily_limit_eur=20000,
+                daily_spent_eur=0, monthly_limit_eur=200000, monthly_spent_eur=1036.78,
+                monthly_remaining_eur=198963.22
+      verdict   check_limits.daily_remaining_eur = 20000
+      answer    Your remaining daily transfer limit is €20,000.00. You have not spent any of your
+                daily allowance yet today.
+
+PASS  LIM-HW2-MONTHLY L2 action      tool_result_numeric  2.4s, 4649 tokens
+      question  I'm CUS-0002. Use check_limits and tell me my remaining MONTHLY transfer limit in
+                EUR.
+      expected  check_limits.monthly_remaining_eur = 198963.2192 +/-0.01
+      tool      check_limits(customer_id=CUS-0002)
+                -> monthly_remaining_eur=198963.22, tier=tier2, as_of=2026-09-15,
+                daily_limit_eur=20000, daily_spent_eur=0, daily_remaining_eur=20000,
+                monthly_limit_eur=200000, monthly_spent_eur=1036.78
+      verdict   check_limits.monthly_remaining_eur = 198963.22
+      answer    Your remaining monthly transfer limit is EUR 198,963.22.
+                This is based on your tier 2 limit of EUR 200,000 per month, with EUR 1,036.78
+                already spent this month (as of 15 September 2026).
+
+------------------------------------------------------------------------
+30/30 passed   elapsed 175.2s
+  action       7/7
+  generation   23/23
+report -> evals/reports/golden-clean-20261004T000956.json

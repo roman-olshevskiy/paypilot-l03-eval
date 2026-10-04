@@ -1,0 +1,19 @@
+{
+  "exit_code": 0,
+  "reports": [
+    "golden-clean-20261004T001507.json"
+  ],
+  "clock": "2026-09-15T10:00:00Z",
+  "usage": {
+    "agent_chat_requests": 30,
+    "agent_model_calls": 62,
+    "input_tokens": 147989,
+    "output_tokens": 6760
+  },
+  "files": [
+    {
+      "path": "golden-clean-20261004T001507.json",
+      "sha256": "93bc660a782a64af3434d49956b1a8109f3534ad705577c0b7e8a31909857a6a"
+    }
+  ]
+}

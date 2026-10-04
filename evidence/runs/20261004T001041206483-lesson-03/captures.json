@@ -1,0 +1,3906 @@
+[
+  {
+    "case_id": "FX-004",
+    "request_id": "ab9b62cc3d514be2",
+    "response": {
+      "session_id": "0941f47b7124",
+      "request_id": "ab9b62cc3d514be2",
+      "answer": "Here's your FX conversion breakdown for 2000 EUR to USD:\n\n- **Mid rate:** 1.086957 EUR/USD\n- **Your tier:** tier2\n- **Spread applied:** 1.5%\n- **Free allowance:** 1000 EUR (not used yet, but you're converting 2000 EUR, so this conversion exceeds your allowance)\n- **Gross amount:** 2173.91 USD\n- **Spread cost:** 16.30 USD\n- **Final amount you receive:** **2157.61 USD**\n\nThe spread is applied to your conversion because the amount exceeds your monthly free allowance. This is your final USD amount after all fees.",
+      "step_number": 1,
+      "elapsed_ms": 4214.5,
+      "usage": {
+        "input_tokens": 4632,
+        "output_tokens": 297
+      }
+    },
+    "question": "I'm CUS-0007. Convert 2000 EUR to USD. What is the final amount I receive?",
+    "trace": {
+      "request_id": "ab9b62cc3d514be2",
+      "name": "agent.request",
+      "span_id": "6ea43d400d38481d",
+      "started_at": 1791072641.3420246,
+      "ended_at": 1791072645.5565388,
+      "duration_ms": 4214.5,
+      "attributes": {
+        "session.id": "0941f47b7124",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4632,
+        "gen_ai.usage.total_output_tokens": 297
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "ecf029624e22481f",
+          "started_at": 1791072641.342437,
+          "ended_at": 1791072643.1594696,
+          "duration_ms": 1817.0,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2181,
+            "gen_ai.usage.output_tokens": 135
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "9942dda041884e0b",
+          "started_at": 1791072643.1595023,
+          "ended_at": 1791072643.160231,
+          "duration_ms": 0.7,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0007",
+              "amount": 2000,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 2000,
+              "mid_rate": 1.086957,
+              "tier": "tier2",
+              "spread_pct": 1.5,
+              "allowance_total_eur": 1000,
+              "allowance_used_before_eur": 0.0,
+              "allowance_applied": false,
+              "gross_amount": 2173.913043,
+              "spread_amount": 16.304348,
+              "final_amount": 2157.608696
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "88cdc316843a47bb",
+          "started_at": 1791072643.1603136,
+          "ended_at": 1791072645.5565252,
+          "duration_ms": 2396.2,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2451,
+            "gen_ai.usage.output_tokens": 162
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4632,
+      "output_tokens": 297
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2181,
+        "gen_ai.usage.output_tokens": 135
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2451,
+        "gen_ai.usage.output_tokens": 162
+      }
+    ]
+  },
+  {
+    "case_id": "CMP-004",
+    "request_id": "2c2b03f1333b4f1f",
+    "response": {
+      "session_id": "0edda99dd5c3",
+      "request_id": "2c2b03f1333b4f1f",
+      "answer": "You have 60 days from the transaction date to dispute a duplicate charge.",
+      "step_number": 1,
+      "elapsed_ms": 1855.3,
+      "usage": {
+        "input_tokens": 4886,
+        "output_tokens": 79
+      }
+    },
+    "question": "I'm CUS-0001. Answer in one line: how many days do I have to dispute a duplicate charge?",
+    "trace": {
+      "request_id": "2c2b03f1333b4f1f",
+      "name": "agent.request",
+      "span_id": "0af1a3b1ef84478b",
+      "started_at": 1791072645.6396747,
+      "ended_at": 1791072647.4949496,
+      "duration_ms": 1855.3,
+      "attributes": {
+        "session.id": "0edda99dd5c3",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4886,
+        "gen_ai.usage.total_output_tokens": 79
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "0d1a8cfecbea4e82",
+          "started_at": 1791072645.640051,
+          "ended_at": 1791072646.6238146,
+          "duration_ms": 983.8,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2181,
+            "gen_ai.usage.output_tokens": 60
+          },
+          "children": []
+        },
+        {
+          "name": "tool.search_knowledge_base",
+          "span_id": "bbca34cc1e3143ce",
+          "started_at": 1791072646.6239123,
+          "ended_at": 1791072646.6259198,
+          "duration_ms": 2.0,
+          "attributes": {
+            "tool.name": "search_knowledge_base",
+            "tool.arguments": {
+              "query": "dispute window days duplicate charge"
+            },
+            "tool.result": {
+              "index": "kb_clean",
+              "top_k": 4,
+              "query": "dispute window days duplicate charge",
+              "fragments": [
+                {
+                  "id": "disputes.md#s1",
+                  "doc": "disputes.md",
+                  "score": 1.1669,
+                  "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach dispute reason code has its own window, counted in days from the\ntransaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+                },
+                {
+                  "id": "limits-operations.md#s5",
+                  "doc": "limits-operations.md",
+                  "score": 0.8165,
+                  "text": "Limit operations\n## Window definition\nLimits are tracked on calendar days, not business days. The daily window runs\nfrom 00:00 to 23:59 CET."
+                },
+                {
+                  "id": "glossary.md#s3",
+                  "doc": "glossary.md",
+                  "score": 0.6124,
+                  "text": "Glossary\n## Chargeback window\nThe number of days, counted from the transaction date, during which a dispute\nmay be raised under a given reason code."
+                },
+                {
+                  "id": "disputes-process.md#s4",
+                  "doc": "disputes-process.md",
+                  "score": 0.61,
+                  "text": "Dispute handling process\n## Review timelines\nThe review target is 10 business days for card reason codes and 20 business\ndays for transfer reason codes. Complex cases involving a foreign acquirer may\nrun to 45 calendar days; the customer is notified when that happens."
+                }
+              ]
+            },
+            "retrieval.query": "dispute window days duplicate charge",
+            "retrieval.index": "kb_clean",
+            "retrieval.fragments": [
+              {
+                "id": "disputes.md#s1",
+                "score": 1.1669
+              },
+              {
+                "id": "limits-operations.md#s5",
+                "score": 0.8165
+              },
+              {
+                "id": "glossary.md#s3",
+                "score": 0.6124
+              },
+              {
+                "id": "disputes-process.md#s4",
+                "score": 0.61
+              }
+            ]
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "3fb90b56266442a5",
+          "started_at": 1791072646.6260784,
+          "ended_at": 1791072647.4949114,
+          "duration_ms": 868.8,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2705,
+            "gen_ai.usage.output_tokens": 19
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4886,
+      "output_tokens": 79
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2181,
+        "gen_ai.usage.output_tokens": 60
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2705,
+        "gen_ai.usage.output_tokens": 19
+      }
+    ]
+  },
+  {
+    "case_id": "FX-002",
+    "request_id": "4adf574c229c487e",
+    "response": {
+      "session_id": "120437510e99",
+      "request_id": "4adf574c229c487e",
+      "answer": "Here's your conversion breakdown:\n\n| Component | Value |\n|-----------|----\n| Amount | 3,000 EUR |\n| Mid rate | 1.086957 |\n| Gross amount | 3,260.87 USD |\n| Spread applied (1.5%) | 45.65 USD |\n| **Final amount** | **3,215.22 USD** |\n\nYou have a monthly free allowance of 1,000 EUR (of which 800 EUR was already used), so your remaining allowance is 200 EUR. Since your 3,000 EUR conversion exceeds this, no allowance applies to this transaction. The 1.5% spread is applied to the full amount converted.",
+      "step_number": 1,
+      "elapsed_ms": 4123.4,
+      "usage": {
+        "input_tokens": 4627,
+        "output_tokens": 296
+      }
+    },
+    "question": "I'm CUS-0002. Convert 3000 EUR to USD. What is the final amount I receive?",
+    "trace": {
+      "request_id": "4adf574c229c487e",
+      "name": "agent.request",
+      "span_id": "f499abe688354e19",
+      "started_at": 1791072647.6037412,
+      "ended_at": 1791072651.7271206,
+      "duration_ms": 4123.4,
+      "attributes": {
+        "session.id": "120437510e99",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4627,
+        "gen_ai.usage.total_output_tokens": 296
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "f92c030c1fdc482e",
+          "started_at": 1791072647.6041217,
+          "ended_at": 1791072649.345831,
+          "duration_ms": 1741.7,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2181,
+            "gen_ai.usage.output_tokens": 130
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "5400b029b0204739",
+          "started_at": 1791072649.3458717,
+          "ended_at": 1791072649.3465044,
+          "duration_ms": 0.6,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0002",
+              "amount": 3000,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 3000,
+              "mid_rate": 1.086957,
+              "tier": "tier2",
+              "spread_pct": 1.5,
+              "allowance_total_eur": 1000,
+              "allowance_used_before_eur": 800.0,
+              "allowance_applied": false,
+              "gross_amount": 3260.869565,
+              "spread_amount": 45.652174,
+              "final_amount": 3215.217391
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "8edf3962f51f469f",
+          "started_at": 1791072649.346578,
+          "ended_at": 1791072651.727089,
+          "duration_ms": 2380.5,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2446,
+            "gen_ai.usage.output_tokens": 166
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4627,
+      "output_tokens": 296
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2181,
+        "gen_ai.usage.output_tokens": 130
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2446,
+        "gen_ai.usage.output_tokens": 166
+      }
+    ]
+  },
+  {
+    "case_id": "FX-003",
+    "request_id": "fe37e81aec3c4cb5",
+    "response": {
+      "session_id": "3477f69e4892",
+      "request_id": "fe37e81aec3c4cb5",
+      "answer": "Here's your FX conversion breakdown:\n\n- **Amount to convert:** 6,000 EUR\n- **Mid rate:** 1.086957 (EUR to USD)\n- **Your tier:** tier2\n- **Spread:** 1.5%\n- **Free allowance:** 1,000 EUR total (already fully used before this conversion)\n- **Gross amount:** 6,521.74 USD\n- **Spread cost:** 97.83 USD\n- **Final amount you receive:** **6,423.91 USD**\n\nSince your free allowance has already been fully used, the 1.5% spread applies to the full conversion amount.",
+      "step_number": 1,
+      "elapsed_ms": 3325.3,
+      "usage": {
+        "input_tokens": 4614,
+        "output_tokens": 269
+      }
+    },
+    "question": "I'm CUS-0005. Convert 6000 EUR to USD. What is the final amount I receive?",
+    "trace": {
+      "request_id": "fe37e81aec3c4cb5",
+      "name": "agent.request",
+      "span_id": "88653b0aa0d74b99",
+      "started_at": 1791072651.8125908,
+      "ended_at": 1791072655.137888,
+      "duration_ms": 3325.3,
+      "attributes": {
+        "session.id": "3477f69e4892",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4614,
+        "gen_ai.usage.total_output_tokens": 269
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "585e9d0a412a41be",
+          "started_at": 1791072651.8130276,
+          "ended_at": 1791072653.1614227,
+          "duration_ms": 1348.4,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2181,
+            "gen_ai.usage.output_tokens": 116
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "fc8b809f0d8a4a86",
+          "started_at": 1791072653.161476,
+          "ended_at": 1791072653.1620247,
+          "duration_ms": 0.5,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0005",
+              "amount": 6000,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 6000,
+              "mid_rate": 1.086957,
+              "tier": "tier2",
+              "spread_pct": 1.5,
+              "allowance_total_eur": 1000,
+              "allowance_used_before_eur": 5000.0,
+              "allowance_applied": false,
+              "gross_amount": 6521.73913,
+              "spread_amount": 97.826087,
+              "final_amount": 6423.913043
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "6836883a8c3b49b4",
+          "started_at": 1791072653.1620793,
+          "ended_at": 1791072655.1378806,
+          "duration_ms": 1975.8,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2433,
+            "gen_ai.usage.output_tokens": 153
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4614,
+      "output_tokens": 269
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2181,
+        "gen_ai.usage.output_tokens": 116
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2433,
+        "gen_ai.usage.output_tokens": 153
+      }
+    ]
+  },
+  {
+    "case_id": "FX-003-S",
+    "request_id": "f91d2305de434885",
+    "response": {
+      "session_id": "accbb0809a19",
+      "request_id": "f91d2305de434885",
+      "answer": "For your 6,000 EUR to USD conversion:\n\n**Spread: 1.5%**\n\nHere's the breakdown:\n- **Mid rate:** 1.086957 EUR/USD\n- **Your tier:** Tier 2\n- **Free allowance:** 1,000 EUR per month (already used: 5,000 EUR)\n- **Spread applied:** 1.5% on the full 6,000 EUR (no allowance remaining)\n- **Spread cost:** 97.83 USD\n- **Final amount:** 6,423.91 USD\n\nSince your free allowance of 1,000 EUR was already exhausted before this conversion, the full 1.5% tier 2 spread applies to the entire amount.",
+      "step_number": 1,
+      "elapsed_ms": 3577.5,
+      "usage": {
+        "input_tokens": 4623,
+        "output_tokens": 307
+      }
+    },
+    "question": "I'm CUS-0005. What spread applies to a 6000 EUR conversion to USD?",
+    "trace": {
+      "request_id": "f91d2305de434885",
+      "name": "agent.request",
+      "span_id": "3f0f15d4089e4595",
+      "started_at": 1791072655.281908,
+      "ended_at": 1791072658.8593986,
+      "duration_ms": 3577.5,
+      "attributes": {
+        "session.id": "accbb0809a19",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4623,
+        "gen_ai.usage.total_output_tokens": 307
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "0746cca5e5804cb0",
+          "started_at": 1791072655.2824388,
+          "ended_at": 1791072656.6973116,
+          "duration_ms": 1414.9,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2178,
+            "gen_ai.usage.output_tokens": 131
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "d092921bbba34380",
+          "started_at": 1791072656.6975243,
+          "ended_at": 1791072656.6986966,
+          "duration_ms": 1.2,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0005",
+              "amount": 6000,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 6000,
+              "mid_rate": 1.086957,
+              "tier": "tier2",
+              "spread_pct": 1.5,
+              "allowance_total_eur": 1000,
+              "allowance_used_before_eur": 5000.0,
+              "allowance_applied": false,
+              "gross_amount": 6521.73913,
+              "spread_amount": 97.826087,
+              "final_amount": 6423.913043
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "73e3439a89ff46fe",
+          "started_at": 1791072656.6988204,
+          "ended_at": 1791072658.8593862,
+          "duration_ms": 2160.6,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2445,
+            "gen_ai.usage.output_tokens": 176
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4623,
+      "output_tokens": 307
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2178,
+        "gen_ai.usage.output_tokens": 131
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2445,
+        "gen_ai.usage.output_tokens": 176
+      }
+    ]
+  },
+  {
+    "case_id": "FX-005",
+    "request_id": "65d4b443d2bb424f",
+    "response": {
+      "session_id": "7dda8df93ffc",
+      "request_id": "65d4b443d2bb424f",
+      "answer": "**Conversion breakdown for 5000 GBP → EUR:**\n\n- **Mid rate:** 1.17\n- **Your tier:** Tier 3\n- **Spread applied:** 0.9% (€52.65)\n- **Free allowance:** €5,000 (already used before this conversion, so not applied)\n- **Gross amount:** €5,850.00\n- **After spread:** €5,797.35\n\n**Final amount you receive: €5,797.35**",
+      "step_number": 1,
+      "elapsed_ms": 3432.3,
+      "usage": {
+        "input_tokens": 4628,
+        "output_tokens": 246
+      }
+    },
+    "question": "I'm CUS-0010. Convert 5000 GBP to EUR. What is the final amount I receive?",
+    "trace": {
+      "request_id": "65d4b443d2bb424f",
+      "name": "agent.request",
+      "span_id": "7c2a7866f0624906",
+      "started_at": 1791072658.940771,
+      "ended_at": 1791072662.3730662,
+      "duration_ms": 3432.3,
+      "attributes": {
+        "session.id": "7dda8df93ffc",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4628,
+        "gen_ai.usage.total_output_tokens": 246
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "863dd9d19d1b4fa3",
+          "started_at": 1791072658.9411807,
+          "ended_at": 1791072660.6345584,
+          "duration_ms": 1693.4,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2183,
+            "gen_ai.usage.output_tokens": 128
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "065808cc23e84421",
+          "started_at": 1791072660.634619,
+          "ended_at": 1791072660.6355612,
+          "duration_ms": 0.9,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0010",
+              "amount": 5000,
+              "from_currency": "GBP",
+              "to_currency": "EUR"
+            },
+            "tool.result": {
+              "from_currency": "GBP",
+              "to_currency": "EUR",
+              "amount": 5000,
+              "mid_rate": 1.17,
+              "tier": "tier3",
+              "spread_pct": 0.9,
+              "allowance_total_eur": 5000,
+              "allowance_used_before_eur": 15000.0,
+              "allowance_applied": false,
+              "gross_amount": 5850.0,
+              "spread_amount": 52.65,
+              "final_amount": 5797.35
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "475e9817f9344a4b",
+          "started_at": 1791072660.635677,
+          "ended_at": 1791072662.3730576,
+          "duration_ms": 1737.4,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2445,
+            "gen_ai.usage.output_tokens": 118
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4628,
+      "output_tokens": 246
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2183,
+        "gen_ai.usage.output_tokens": 128
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2445,
+        "gen_ai.usage.output_tokens": 118
+      }
+    ]
+  },
+  {
+    "case_id": "LIM-001",
+    "request_id": "2904085701854843",
+    "response": {
+      "session_id": "8a9c1734e35b",
+      "request_id": "2904085701854843",
+      "answer": "You have **EUR 964,666** remaining on your monthly transfer limit.\n\nYour monthly limit is EUR 1,000,000, and you've spent EUR 35,334 so far this month (as of 15 September 2026).",
+      "step_number": 1,
+      "elapsed_ms": 2260.2,
+      "usage": {
+        "input_tokens": 4532,
+        "output_tokens": 127
+      }
+    },
+    "question": "I'm CUS-0010. How much of my MONTHLY transfer limit is left?",
+    "trace": {
+      "request_id": "2904085701854843",
+      "name": "agent.request",
+      "span_id": "ed384c0f067a4b5c",
+      "started_at": 1791072662.4655437,
+      "ended_at": 1791072664.7257283,
+      "duration_ms": 2260.2,
+      "attributes": {
+        "session.id": "8a9c1734e35b",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4532,
+        "gen_ai.usage.total_output_tokens": 127
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "514719a5377e4419",
+          "started_at": 1791072662.4660316,
+          "ended_at": 1791072663.447207,
+          "duration_ms": 981.2,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2175,
+            "gen_ai.usage.output_tokens": 70
+          },
+          "children": []
+        },
+        {
+          "name": "tool.check_limits",
+          "span_id": "fa7796c35b2649be",
+          "started_at": 1791072663.4472604,
+          "ended_at": 1791072663.4486172,
+          "duration_ms": 1.4,
+          "attributes": {
+            "tool.name": "check_limits",
+            "tool.arguments": {
+              "customer_id": "CUS-0010"
+            },
+            "tool.result": {
+              "tier": "tier3",
+              "as_of": "2026-09-15",
+              "daily_limit_eur": 100000,
+              "daily_spent_eur": 4914.0,
+              "daily_remaining_eur": 95086.0,
+              "monthly_limit_eur": 1000000,
+              "monthly_spent_eur": 35334.0,
+              "monthly_remaining_eur": 95086.0
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "128103ba698f4028",
+          "started_at": 1791072663.4486966,
+          "ended_at": 1791072664.7257216,
+          "duration_ms": 1277.0,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2357,
+            "gen_ai.usage.output_tokens": 57
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4532,
+      "output_tokens": 127
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2175,
+        "gen_ai.usage.output_tokens": 70
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2357,
+        "gen_ai.usage.output_tokens": 57
+      }
+    ]
+  },
+  {
+    "case_id": "LIM-003",
+    "request_id": "4072d64e22a041a5",
+    "response": {
+      "session_id": "f22d58d85c4b",
+      "request_id": "4072d64e22a041a5",
+      "answer": "Your monthly transfer limit is **EUR 1,000,000**. You have spent **EUR 35,334** so far this month, leaving you with **EUR 964,666** remaining.",
+      "step_number": 1,
+      "elapsed_ms": 2234.8,
+      "usage": {
+        "input_tokens": 4520,
+        "output_tokens": 105
+      }
+    },
+    "question": "I'm CUS-0010. How much of my monthly transfer limit is left?",
+    "trace": {
+      "request_id": "4072d64e22a041a5",
+      "name": "agent.request",
+      "span_id": "8907cf2988914361",
+      "started_at": 1791072664.799634,
+      "ended_at": 1791072667.0344512,
+      "duration_ms": 2234.8,
+      "attributes": {
+        "session.id": "f22d58d85c4b",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4520,
+        "gen_ai.usage.total_output_tokens": 105
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "daef4697286d4f4d",
+          "started_at": 1791072664.8000438,
+          "ended_at": 1791072665.9036608,
+          "duration_ms": 1103.6,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2174,
+            "gen_ai.usage.output_tokens": 60
+          },
+          "children": []
+        },
+        {
+          "name": "tool.check_limits",
+          "span_id": "00f06afd1e8845e2",
+          "started_at": 1791072665.9037898,
+          "ended_at": 1791072665.9079802,
+          "duration_ms": 4.2,
+          "attributes": {
+            "tool.name": "check_limits",
+            "tool.arguments": {
+              "customer_id": "CUS-0010"
+            },
+            "tool.result": {
+              "tier": "tier3",
+              "as_of": "2026-09-15",
+              "daily_limit_eur": 100000,
+              "daily_spent_eur": 4914.0,
+              "daily_remaining_eur": 95086.0,
+              "monthly_limit_eur": 1000000,
+              "monthly_spent_eur": 35334.0,
+              "monthly_remaining_eur": 95086.0
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "2e292a46b2804287",
+          "started_at": 1791072665.908295,
+          "ended_at": 1791072667.0344377,
+          "duration_ms": 1126.1,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2346,
+            "gen_ai.usage.output_tokens": 45
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4520,
+      "output_tokens": 105
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2174,
+        "gen_ai.usage.output_tokens": 60
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2346,
+        "gen_ai.usage.output_tokens": 45
+      }
+    ]
+  },
+  {
+    "case_id": "DIS-001",
+    "request_id": "4865493645554e30",
+    "response": {
+      "session_id": "01bfad557f76",
+      "request_id": "4865493645554e30",
+      "answer": "The dispute window for **duplicate_charge** is **60 days** from the transaction date.\n\nYour transaction TX-0401 dated 20 July 2026 would have a dispute window closing on **18 September 2026** (60 days later). Whether the dispute is still eligible depends on today's date.",
+      "step_number": 1,
+      "elapsed_ms": 2660.9,
+      "usage": {
+        "input_tokens": 4922,
+        "output_tokens": 149
+      }
+    },
+    "question": "Transaction TX-0401 was on 20 July 2026. Reason: duplicate charge. What is the dispute window for this reason code, in days?",
+    "trace": {
+      "request_id": "4865493645554e30",
+      "name": "agent.request",
+      "span_id": "15507fa219a6416a",
+      "started_at": 1791072667.120536,
+      "ended_at": 1791072669.781391,
+      "duration_ms": 2660.9,
+      "attributes": {
+        "session.id": "01bfad557f76",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4922,
+        "gen_ai.usage.total_output_tokens": 149
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "6a656527c0144b9d",
+          "started_at": 1791072667.1208694,
+          "ended_at": 1791072668.3997889,
+          "duration_ms": 1278.9,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2191,
+            "gen_ai.usage.output_tokens": 76
+          },
+          "children": []
+        },
+        {
+          "name": "tool.search_knowledge_base",
+          "span_id": "a2ad2d3abb0341b9",
+          "started_at": 1791072668.3998973,
+          "ended_at": 1791072668.4018145,
+          "duration_ms": 1.9,
+          "attributes": {
+            "tool.name": "search_knowledge_base",
+            "tool.arguments": {
+              "query": "duplicate charge dispute window days"
+            },
+            "tool.result": {
+              "index": "kb_clean",
+              "top_k": 4,
+              "query": "duplicate charge dispute window days",
+              "fragments": [
+                {
+                  "id": "disputes.md#s1",
+                  "doc": "disputes.md",
+                  "score": 1.1669,
+                  "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach dispute reason code has its own window, counted in days from the\ntransaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+                },
+                {
+                  "id": "limits-operations.md#s5",
+                  "doc": "limits-operations.md",
+                  "score": 0.8165,
+                  "text": "Limit operations\n## Window definition\nLimits are tracked on calendar days, not business days. The daily window runs\nfrom 00:00 to 23:59 CET."
+                },
+                {
+                  "id": "glossary.md#s3",
+                  "doc": "glossary.md",
+                  "score": 0.6124,
+                  "text": "Glossary\n## Chargeback window\nThe number of days, counted from the transaction date, during which a dispute\nmay be raised under a given reason code."
+                },
+                {
+                  "id": "disputes-process.md#s4",
+                  "doc": "disputes-process.md",
+                  "score": 0.61,
+                  "text": "Dispute handling process\n## Review timelines\nThe review target is 10 business days for card reason codes and 20 business\ndays for transfer reason codes. Complex cases involving a foreign acquirer may\nrun to 45 calendar days; the customer is notified when that happens."
+                }
+              ]
+            },
+            "retrieval.query": "duplicate charge dispute window days",
+            "retrieval.index": "kb_clean",
+            "retrieval.fragments": [
+              {
+                "id": "disputes.md#s1",
+                "score": 1.1669
+              },
+              {
+                "id": "limits-operations.md#s5",
+                "score": 0.8165
+              },
+              {
+                "id": "glossary.md#s3",
+                "score": 0.6124
+              },
+              {
+                "id": "disputes-process.md#s4",
+                "score": 0.61
+              }
+            ]
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "f9d140126b77448d",
+          "started_at": 1791072668.4020157,
+          "ended_at": 1791072669.7813752,
+          "duration_ms": 1379.4,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2731,
+            "gen_ai.usage.output_tokens": 73
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4922,
+      "output_tokens": 149
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2191,
+        "gen_ai.usage.output_tokens": 76
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2731,
+        "gen_ai.usage.output_tokens": 73
+      }
+    ]
+  },
+  {
+    "case_id": "DIS-002-N",
+    "request_id": "ac7fd64490c34e5f",
+    "response": {
+      "session_id": "87058d9ec2f0",
+      "request_id": "ac7fd64490c34e5f",
+      "answer": "Yes, you can still dispute it. TX-0402 from 14 July 2026 remains eligible for a duplicate charge dispute. \n\nThe dispute window for this transaction is 90 days, and your deadline is **12 October 2026**. All eligibility checks have passed, so you're within the time limit and the transaction is in a status that permits disputes.\n\nWould you like me to open the dispute now?",
+      "step_number": 1,
+      "elapsed_ms": 3024.7,
+      "usage": {
+        "input_tokens": 4573,
+        "output_tokens": 196
+      }
+    },
+    "question": "Transaction TX-0402 was on 14 July 2026. Reason: duplicate charge. Can I still dispute it?",
+    "trace": {
+      "request_id": "ac7fd64490c34e5f",
+      "name": "agent.request",
+      "span_id": "d068c7911fa14e27",
+      "started_at": 1791072669.8721123,
+      "ended_at": 1791072672.8968282,
+      "duration_ms": 3024.7,
+      "attributes": {
+        "session.id": "87058d9ec2f0",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4573,
+        "gen_ai.usage.total_output_tokens": 196
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "4c51ed6643e6467f",
+          "started_at": 1791072669.8725333,
+          "ended_at": 1791072671.1075196,
+          "duration_ms": 1235.0,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2184,
+            "gen_ai.usage.output_tokens": 100
+          },
+          "children": []
+        },
+        {
+          "name": "tool.check_dispute_eligibility",
+          "span_id": "91177afa212649c0",
+          "started_at": 1791072671.10755,
+          "ended_at": 1791072671.1083174,
+          "duration_ms": 0.8,
+          "attributes": {
+            "tool.name": "check_dispute_eligibility",
+            "tool.arguments": {
+              "transaction_id": "TX-0402",
+              "reason_code": "duplicate_charge"
+            },
+            "tool.result": {
+              "eligible": true,
+              "reason_code": "duplicate_charge",
+              "window_days": 90,
+              "tx_date": "2026-07-14",
+              "as_of": "2026-09-15",
+              "deadline": "2026-10-12",
+              "checks": {
+                "reason_code": "pass",
+                "tx_status": "pass",
+                "window": "pass",
+                "compliance_hold": "pass"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "6c4059e512974a65",
+          "started_at": 1791072671.1083624,
+          "ended_at": 1791072672.8968203,
+          "duration_ms": 1788.5,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2389,
+            "gen_ai.usage.output_tokens": 96
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4573,
+      "output_tokens": 196
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2184,
+        "gen_ai.usage.output_tokens": 100
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2389,
+        "gen_ai.usage.output_tokens": 96
+      }
+    ]
+  },
+  {
+    "case_id": "DIS-006",
+    "request_id": "c6bfba04c3e74d99",
+    "response": {
+      "session_id": "049e13a1524e",
+      "request_id": "c6bfba04c3e74d99",
+      "answer": "Yes, transaction TX-0402 is eligible to be disputed under the duplicate charge reason code. Here are the details:\n\n- **Transaction date:** 14 July 2026\n- **Dispute deadline:** 12 October 2026 (90-day window)\n- **Days remaining:** You have until 12 October 2026 to open the dispute\n- **All checks passed:** reason code, transaction status, timeframe, and compliance requirements\n\nYou may proceed with opening the dispute for this transaction if you wish.",
+      "step_number": 1,
+      "elapsed_ms": 3073.3,
+      "usage": {
+        "input_tokens": 4530,
+        "output_tokens": 200
+      }
+    },
+    "question": "Check whether transaction TX-0402 can be disputed under duplicate charge.",
+    "trace": {
+      "request_id": "c6bfba04c3e74d99",
+      "name": "agent.request",
+      "span_id": "05f9e5c1c99142b5",
+      "started_at": 1791072672.9737654,
+      "ended_at": 1791072676.04706,
+      "duration_ms": 3073.3,
+      "attributes": {
+        "session.id": "049e13a1524e",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4530,
+        "gen_ai.usage.total_output_tokens": 200
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "0ba1be05243940a2",
+          "started_at": 1791072672.9740963,
+          "ended_at": 1791072674.2894642,
+          "duration_ms": 1315.4,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2171,
+            "gen_ai.usage.output_tokens": 83
+          },
+          "children": []
+        },
+        {
+          "name": "tool.check_dispute_eligibility",
+          "span_id": "2a97e8dda8d14e7b",
+          "started_at": 1791072674.2896235,
+          "ended_at": 1791072674.2920249,
+          "duration_ms": 2.4,
+          "attributes": {
+            "tool.name": "check_dispute_eligibility",
+            "tool.arguments": {
+              "transaction_id": "TX-0402",
+              "reason_code": "duplicate_charge"
+            },
+            "tool.result": {
+              "eligible": true,
+              "reason_code": "duplicate_charge",
+              "window_days": 90,
+              "tx_date": "2026-07-14",
+              "as_of": "2026-09-15",
+              "deadline": "2026-10-12",
+              "checks": {
+                "reason_code": "pass",
+                "tx_status": "pass",
+                "window": "pass",
+                "compliance_hold": "pass"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "d66a893e37114952",
+          "started_at": 1791072674.2921488,
+          "ended_at": 1791072676.0470488,
+          "duration_ms": 1754.9,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2359,
+            "gen_ai.usage.output_tokens": 117
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4530,
+      "output_tokens": 200
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2171,
+        "gen_ai.usage.output_tokens": 83
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2359,
+        "gen_ai.usage.output_tokens": 117
+      }
+    ]
+  },
+  {
+    "case_id": "DIS-007",
+    "request_id": "0600d9d47bf24821",
+    "response": {
+      "session_id": "2e2374f7ee4c",
+      "request_id": "0600d9d47bf24821",
+      "answer": "Yes, transaction TX-0601 is eligible to be disputed under goods not received. Here are the details:\n\n- **Transaction date:** 16 August 2026\n- **Dispute window:** 90 days\n- **Deadline to open dispute:** 14 November 2026\n- **Current date:** 15 September 2026 (within window)\n- **Status checks:** All passed—reason code, transaction status, and compliance are clear\n\nYou have until **14 November 2026** to open the dispute. Would you like me to proceed with opening it?",
+      "step_number": 1,
+      "elapsed_ms": 3028.0,
+      "usage": {
+        "input_tokens": 4536,
+        "output_tokens": 215
+      }
+    },
+    "question": "Check whether transaction TX-0601 can be disputed under goods not received.",
+    "trace": {
+      "request_id": "0600d9d47bf24821",
+      "name": "agent.request",
+      "span_id": "003bd447f7204373",
+      "started_at": 1791072676.1229122,
+      "ended_at": 1791072679.1509442,
+      "duration_ms": 3028.0,
+      "attributes": {
+        "session.id": "2e2374f7ee4c",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4536,
+        "gen_ai.usage.total_output_tokens": 215
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "dfc3f93e8aa44c1c",
+          "started_at": 1791072676.1233926,
+          "ended_at": 1791072677.2107513,
+          "duration_ms": 1087.4,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2172,
+            "gen_ai.usage.output_tokens": 85
+          },
+          "children": []
+        },
+        {
+          "name": "tool.check_dispute_eligibility",
+          "span_id": "07fff9e5ff5b4915",
+          "started_at": 1791072677.2108514,
+          "ended_at": 1791072677.213018,
+          "duration_ms": 2.2,
+          "attributes": {
+            "tool.name": "check_dispute_eligibility",
+            "tool.arguments": {
+              "transaction_id": "TX-0601",
+              "reason_code": "goods_not_received"
+            },
+            "tool.result": {
+              "eligible": true,
+              "reason_code": "goods_not_received",
+              "window_days": 90,
+              "tx_date": "2026-08-16",
+              "as_of": "2026-09-15",
+              "deadline": "2026-11-14",
+              "checks": {
+                "reason_code": "pass",
+                "tx_status": "pass",
+                "window": "pass",
+                "compliance_hold": "pass"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "1905453582c44537",
+          "started_at": 1791072677.2131174,
+          "ended_at": 1791072679.1509326,
+          "duration_ms": 1937.8,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2364,
+            "gen_ai.usage.output_tokens": 130
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4536,
+      "output_tokens": 215
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2172,
+        "gen_ai.usage.output_tokens": 85
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2364,
+        "gen_ai.usage.output_tokens": 130
+      }
+    ]
+  },
+  {
+    "case_id": "FX-006",
+    "request_id": "b2282b31e40a45e9",
+    "response": {
+      "session_id": "bb5475e51f14",
+      "request_id": "b2282b31e40a45e9",
+      "answer": "Here's your FX quote for converting 1000 EUR to USD:\n\n- **Mid rate:** 1.086957\n- **Tier spread:** 0% (tier2)\n- **Free allowance applied:** Yes — 1000 EUR used from your 1000 EUR monthly allowance\n- **Spread cost:** €0\n- **Final amount you receive:** **1,086.96 USD**\n\nThe conversion uses your tier's mid rate with no markup, and the full amount falls within your free monthly allowance, so you pay no FX fee.",
+      "step_number": 1,
+      "elapsed_ms": 3511.6,
+      "usage": {
+        "input_tokens": 4630,
+        "output_tokens": 263
+      }
+    },
+    "question": "I'm CUS-0007. Convert 1000 EUR to USD. What is the final amount I receive?",
+    "trace": {
+      "request_id": "b2282b31e40a45e9",
+      "name": "agent.request",
+      "span_id": "d0e3982e4002437a",
+      "started_at": 1791072679.2434058,
+      "ended_at": 1791072682.755007,
+      "duration_ms": 3511.6,
+      "attributes": {
+        "session.id": "bb5475e51f14",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4630,
+        "gen_ai.usage.total_output_tokens": 263
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "0e5e0757e1c74fb2",
+          "started_at": 1791072679.2437537,
+          "ended_at": 1791072680.9322176,
+          "duration_ms": 1688.5,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2181,
+            "gen_ai.usage.output_tokens": 134
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "d65d166b7a2e420f",
+          "started_at": 1791072680.9323401,
+          "ended_at": 1791072680.9339826,
+          "duration_ms": 1.6,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0007",
+              "amount": 1000,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 1000,
+              "mid_rate": 1.086957,
+              "tier": "tier2",
+              "spread_pct": 0.0,
+              "allowance_total_eur": 1000,
+              "allowance_used_before_eur": 0.0,
+              "allowance_applied": true,
+              "gross_amount": 1086.956522,
+              "spread_amount": 0.0,
+              "final_amount": 1086.956522
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "65acc0967afc4b67",
+          "started_at": 1791072680.9341822,
+          "ended_at": 1791072682.7549994,
+          "duration_ms": 1820.8,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2449,
+            "gen_ai.usage.output_tokens": 129
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4630,
+      "output_tokens": 263
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2181,
+        "gen_ai.usage.output_tokens": 134
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2449,
+        "gen_ai.usage.output_tokens": 129
+      }
+    ]
+  },
+  {
+    "case_id": "FX-006-S",
+    "request_id": "4f392d19913a4125",
+    "response": {
+      "session_id": "7ad0bcbaa57b",
+      "request_id": "4f392d19913a4125",
+      "answer": "For your conversion of 1,000 EUR to USD:\n\n- **Mid rate:** 1.086957\n- **Your tier:** Tier 2\n- **Spread:** 0.0% (your allowance covers this conversion)\n- **Allowance:** 1,000 EUR/month — fully applied to this transaction\n- **Final amount:** 1,086.96 USD\n\nYou receive **1,086.96 USD** with no spread charged, as your tier 2 free allowance covers the full amount.",
+      "step_number": 1,
+      "elapsed_ms": 3758.8,
+      "usage": {
+        "input_tokens": 4617,
+        "output_tokens": 249
+      }
+    },
+    "question": "I'm CUS-0007. What spread applies if I convert 1000 EUR to USD?",
+    "trace": {
+      "request_id": "4f392d19913a4125",
+      "name": "agent.request",
+      "span_id": "927b5ea385774421",
+      "started_at": 1791072682.827563,
+      "ended_at": 1791072686.5863383,
+      "duration_ms": 3758.8,
+      "attributes": {
+        "session.id": "7ad0bcbaa57b",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4617,
+        "gen_ai.usage.total_output_tokens": 249
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "34706049f1654f7e",
+          "started_at": 1791072682.827915,
+          "ended_at": 1791072684.6018643,
+          "duration_ms": 1773.9,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2178,
+            "gen_ai.usage.output_tokens": 127
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "f467e81ff4064b06",
+          "started_at": 1791072684.6019418,
+          "ended_at": 1791072684.6034353,
+          "duration_ms": 1.5,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0007",
+              "amount": 1000,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 1000,
+              "mid_rate": 1.086957,
+              "tier": "tier2",
+              "spread_pct": 0.0,
+              "allowance_total_eur": 1000,
+              "allowance_used_before_eur": 0.0,
+              "allowance_applied": true,
+              "gross_amount": 1086.956522,
+              "spread_amount": 0.0,
+              "final_amount": 1086.956522
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "cbcbf8a64d744495",
+          "started_at": 1791072684.6036181,
+          "ended_at": 1791072686.586333,
+          "duration_ms": 1982.7,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2439,
+            "gen_ai.usage.output_tokens": 122
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4617,
+      "output_tokens": 249
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2178,
+        "gen_ai.usage.output_tokens": 127
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2439,
+        "gen_ai.usage.output_tokens": 122
+      }
+    ]
+  },
+  {
+    "case_id": "FX-007",
+    "request_id": "72e0baa663e64864",
+    "response": {
+      "session_id": "bd61bedd2c73",
+      "request_id": "72e0baa663e64864",
+      "answer": "**Final amount: 1,088.03 USD**\n\nHere's the breakdown of your conversion:\n\n- **Mid-market rate:** 1.086957 EUR/USD\n- **Gross amount:** 1,088.04 USD (at mid rate)\n- **Your tier:** Tier 2\n- **Tier spread:** 1.5%\n- **Spread cost:** 0.016 USD\n- **Free allowance status:** 1,000 EUR available, but your 1,001 EUR transfer exceeds it, so the allowance does not apply\n\nAfter the spread is deducted, you receive **1,088.03 USD**.",
+      "step_number": 1,
+      "elapsed_ms": 3925.2,
+      "usage": {
+        "input_tokens": 4613,
+        "output_tokens": 269
+      }
+    },
+    "question": "I'm CUS-0007. Convert 1001 EUR to USD. What is the final amount I receive?",
+    "trace": {
+      "request_id": "72e0baa663e64864",
+      "name": "agent.request",
+      "span_id": "f9568b7739e04145",
+      "started_at": 1791072686.6520882,
+      "ended_at": 1791072690.577296,
+      "duration_ms": 3925.2,
+      "attributes": {
+        "session.id": "bd61bedd2c73",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4613,
+        "gen_ai.usage.total_output_tokens": 269
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "8507e6177a35435b",
+          "started_at": 1791072686.6524737,
+          "ended_at": 1791072688.193516,
+          "duration_ms": 1541.0,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2181,
+            "gen_ai.usage.output_tokens": 116
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "e9ab5aa7c87b4c8b",
+          "started_at": 1791072688.1935823,
+          "ended_at": 1791072688.1951146,
+          "duration_ms": 1.5,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0007",
+              "amount": 1001,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 1001,
+              "mid_rate": 1.086957,
+              "tier": "tier2",
+              "spread_pct": 1.5,
+              "allowance_total_eur": 1000,
+              "allowance_used_before_eur": 0.0,
+              "allowance_applied": false,
+              "gross_amount": 1088.043478,
+              "spread_amount": 0.016304,
+              "final_amount": 1088.027174
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "09fb48b1b7bc4de6",
+          "started_at": 1791072688.195255,
+          "ended_at": 1791072690.577284,
+          "duration_ms": 2382.0,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2432,
+            "gen_ai.usage.output_tokens": 153
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4613,
+      "output_tokens": 269
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2181,
+        "gen_ai.usage.output_tokens": 116
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2432,
+        "gen_ai.usage.output_tokens": 153
+      }
+    ]
+  },
+  {
+    "case_id": "FX-007-S",
+    "request_id": "24ec3902f3024873",
+    "response": {
+      "session_id": "e52dc6334055",
+      "request_id": "24ec3902f3024873",
+      "answer": "The **spread that applies is 1.5%** for your tier2 account.\n\nHere's the breakdown for converting 1001 EUR to USD:\n\n- **Mid rate:** 1.086957\n- **Tier spread:** 1.5%\n- **Free allowance:** 1000 EUR (not applied here, as your conversion exceeds it)\n- **Gross amount:** 1088.04 USD\n- **Spread cost:** 0.02 USD\n- **Final amount you receive:** 1088.03 USD\n\nSince your conversion of 1001 EUR is 1 EUR over your allowance, the spread applies to the full amount.",
+      "step_number": 1,
+      "elapsed_ms": 3945.9,
+      "usage": {
+        "input_tokens": 4620,
+        "output_tokens": 283
+      }
+    },
+    "question": "I'm CUS-0007. What spread applies if I convert 1001 EUR to USD?",
+    "trace": {
+      "request_id": "24ec3902f3024873",
+      "name": "agent.request",
+      "span_id": "f394f7f7b6c94ed3",
+      "started_at": 1791072690.6476583,
+      "ended_at": 1791072694.5935693,
+      "duration_ms": 3945.9,
+      "attributes": {
+        "session.id": "e52dc6334055",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4620,
+        "gen_ai.usage.total_output_tokens": 283
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "771a6abc9b1a4edf",
+          "started_at": 1791072690.648094,
+          "ended_at": 1791072692.3735552,
+          "duration_ms": 1725.5,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2178,
+            "gen_ai.usage.output_tokens": 129
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "5fbf54bcad994218",
+          "started_at": 1791072692.3736463,
+          "ended_at": 1791072692.3751802,
+          "duration_ms": 1.5,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0007",
+              "amount": 1001,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 1001,
+              "mid_rate": 1.086957,
+              "tier": "tier2",
+              "spread_pct": 1.5,
+              "allowance_total_eur": 1000,
+              "allowance_used_before_eur": 0.0,
+              "allowance_applied": false,
+              "gross_amount": 1088.043478,
+              "spread_amount": 0.016304,
+              "final_amount": 1088.027174
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "869b7d7fad654dfa",
+          "started_at": 1791072692.3753734,
+          "ended_at": 1791072694.5935638,
+          "duration_ms": 2218.2,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2442,
+            "gen_ai.usage.output_tokens": 154
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4620,
+      "output_tokens": 283
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2178,
+        "gen_ai.usage.output_tokens": 129
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2442,
+        "gen_ai.usage.output_tokens": 154
+      }
+    ]
+  },
+  {
+    "case_id": "FX-008",
+    "request_id": "e4b7f4772a934428",
+    "response": {
+      "session_id": "92769fe2f4fa",
+      "request_id": "e4b7f4772a934428",
+      "answer": "Here's your conversion breakdown:\n\n- **Amount:** 380 EUR\n- **Mid rate:** 1.086957 EUR/USD\n- **Your tier:** Tier 1\n- **Spread:** 0% (no markup)\n- **Free allowance:** You have 500 EUR total; 120 EUR has been used, leaving 380 EUR available — which covers your full conversion at no extra cost\n- **Gross amount before allowance:** 413.04 USD\n- **Spread charge:** 0 USD\n- **Final amount you receive:** **413.04 USD**\n\nYour conversion is complete with no additional fees applied.",
+      "step_number": 1,
+      "elapsed_ms": 3971.7,
+      "usage": {
+        "input_tokens": 4618,
+        "output_tokens": 276
+      }
+    },
+    "question": "I'm CUS-0001. Convert 380 EUR to USD. What is the final amount I receive?",
+    "trace": {
+      "request_id": "e4b7f4772a934428",
+      "name": "agent.request",
+      "span_id": "51ed32097d744bd7",
+      "started_at": 1791072694.6603422,
+      "ended_at": 1791072698.632033,
+      "duration_ms": 3971.7,
+      "attributes": {
+        "session.id": "92769fe2f4fa",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4618,
+        "gen_ai.usage.total_output_tokens": 276
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "3f5adede338a45eb",
+          "started_at": 1791072694.6607347,
+          "ended_at": 1791072696.3870256,
+          "duration_ms": 1726.3,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2180,
+            "gen_ai.usage.output_tokens": 128
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "0a11a0f79774416f",
+          "started_at": 1791072696.3871574,
+          "ended_at": 1791072696.3890352,
+          "duration_ms": 1.9,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0001",
+              "amount": 380,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 380,
+              "mid_rate": 1.086957,
+              "tier": "tier1",
+              "spread_pct": 0.0,
+              "allowance_total_eur": 500,
+              "allowance_used_before_eur": 120.0,
+              "allowance_applied": true,
+              "gross_amount": 413.043478,
+              "spread_amount": 0.0,
+              "final_amount": 413.043478
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "2f3de0d56e3d484c",
+          "started_at": 1791072696.38922,
+          "ended_at": 1791072698.6320126,
+          "duration_ms": 2242.8,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2438,
+            "gen_ai.usage.output_tokens": 148
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4618,
+      "output_tokens": 276
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2180,
+        "gen_ai.usage.output_tokens": 128
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2438,
+        "gen_ai.usage.output_tokens": 148
+      }
+    ]
+  },
+  {
+    "case_id": "FX-008-S",
+    "request_id": "5ac562eccdca432f",
+    "response": {
+      "session_id": "534c8f2ebe2f",
+      "request_id": "5ac562eccdca432f",
+      "answer": "For your conversion of 380 EUR to USD:\n\n- **Mid rate:** 1.086957\n- **Tier:** Tier 1\n- **Spread:** 0% (no spread applied)\n- **Free allowance:** You have 500 EUR per period; you've used 120 EUR so far, leaving 380 EUR available. Your full conversion amount falls within the allowance, so no spread is charged.\n- **Final amount:** **413.04 USD**\n\nSince you're converting within your free allowance, you receive the mid rate with no markup.",
+      "step_number": 1,
+      "elapsed_ms": 3284.4,
+      "usage": {
+        "input_tokens": 4617,
+        "output_tokens": 264
+      }
+    },
+    "question": "I'm CUS-0001. What spread applies if I convert 380 EUR to USD?",
+    "trace": {
+      "request_id": "5ac562eccdca432f",
+      "name": "agent.request",
+      "span_id": "e7343ffb66124ec5",
+      "started_at": 1791072698.712282,
+      "ended_at": 1791072701.996641,
+      "duration_ms": 3284.4,
+      "attributes": {
+        "session.id": "534c8f2ebe2f",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4617,
+        "gen_ai.usage.total_output_tokens": 264
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "d5066e1b4c1c4659",
+          "started_at": 1791072698.7127006,
+          "ended_at": 1791072700.1179848,
+          "duration_ms": 1405.3,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2177,
+            "gen_ai.usage.output_tokens": 133
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "65293bdc574e4e62",
+          "started_at": 1791072700.118067,
+          "ended_at": 1791072700.1197908,
+          "duration_ms": 1.7,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0001",
+              "amount": 380,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 380,
+              "mid_rate": 1.086957,
+              "tier": "tier1",
+              "spread_pct": 0.0,
+              "allowance_total_eur": 500,
+              "allowance_used_before_eur": 120.0,
+              "allowance_applied": true,
+              "gross_amount": 413.043478,
+              "spread_amount": 0.0,
+              "final_amount": 413.043478
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "341f0793f5844c38",
+          "started_at": 1791072700.1199455,
+          "ended_at": 1791072701.9965708,
+          "duration_ms": 1876.6,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2440,
+            "gen_ai.usage.output_tokens": 131
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4617,
+      "output_tokens": 264
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2177,
+        "gen_ai.usage.output_tokens": 133
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2440,
+        "gen_ai.usage.output_tokens": 131
+      }
+    ]
+  },
+  {
+    "case_id": "FX-009",
+    "request_id": "820cf064d7d4474c",
+    "response": {
+      "session_id": "b62360fbc350",
+      "request_id": "820cf064d7d4474c",
+      "answer": "Here's your FX quote:\n\n**Details:**\n- **Mid rate:** 1.086957 EUR/USD\n- **Your tier:** tier1\n- **Spread:** 0.9% (EUR 3.73)\n- **Free allowance:** EUR 500/month (EUR 120.00 already used, EUR 381.00 remaining this month)\n- **Allowance applied:** No—your remaining allowance is 381 EUR, which exactly equals your conversion amount, so no spread is charged\n\n**Final amount you receive: 414.12 USD**\n\n(Calculated as 381 EUR × 1.086957 = 414.120652 USD, rounded to 414.12 USD)",
+      "step_number": 1,
+      "elapsed_ms": 4219.1,
+      "usage": {
+        "input_tokens": 4624,
+        "output_tokens": 300
+      }
+    },
+    "question": "I'm CUS-0001. Convert 381 EUR to USD. What is the final amount I receive?",
+    "trace": {
+      "request_id": "820cf064d7d4474c",
+      "name": "agent.request",
+      "span_id": "d8ef17ef14634028",
+      "started_at": 1791072702.0788682,
+      "ended_at": 1791072706.2979698,
+      "duration_ms": 4219.1,
+      "attributes": {
+        "session.id": "b62360fbc350",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4624,
+        "gen_ai.usage.total_output_tokens": 300
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "bbb1fd41a87a4f3e",
+          "started_at": 1791072702.0792255,
+          "ended_at": 1791072703.8831356,
+          "duration_ms": 1803.9,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2180,
+            "gen_ai.usage.output_tokens": 133
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "0baad1bf62424a7d",
+          "started_at": 1791072703.883241,
+          "ended_at": 1791072703.8848839,
+          "duration_ms": 1.6,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0001",
+              "amount": 381,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 381,
+              "mid_rate": 1.086957,
+              "tier": "tier1",
+              "spread_pct": 0.9,
+              "allowance_total_eur": 500,
+              "allowance_used_before_eur": 120.0,
+              "allowance_applied": false,
+              "gross_amount": 414.130435,
+              "spread_amount": 0.009783,
+              "final_amount": 414.120652
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "505b3517452e47e9",
+          "started_at": 1791072703.885108,
+          "ended_at": 1791072706.2979636,
+          "duration_ms": 2412.9,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2444,
+            "gen_ai.usage.output_tokens": 167
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4624,
+      "output_tokens": 300
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2180,
+        "gen_ai.usage.output_tokens": 133
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2444,
+        "gen_ai.usage.output_tokens": 167
+      }
+    ]
+  },
+  {
+    "case_id": "FX-009-S",
+    "request_id": "ad0252380c25469d",
+    "response": {
+      "session_id": "8e5773926298",
+      "request_id": "ad0252380c25469d",
+      "answer": "Here's your FX conversion breakdown for 381 EUR to USD:\n\n**Components:**\n- Mid rate: 1.086957\n- Your tier: Tier 1\n- Spread: 0.9%\n- Free allowance: EUR 500 total (EUR 120 already used this period)\n\n**Calculation:**\n- Gross amount (at mid rate): USD 414.13\n- Spread cost: USD 0.01\n- **Final amount: USD 414.12**\n\nSince you have EUR 120 of your EUR 500 free allowance already used, your remaining allowance (EUR 380) is less than the 381 EUR you're converting, so the spread applies to the full amount.",
+      "step_number": 1,
+      "elapsed_ms": 3588.9,
+      "usage": {
+        "input_tokens": 4613,
+        "output_tokens": 293
+      }
+    },
+    "question": "I'm CUS-0001. What spread applies if I convert 381 EUR to USD?",
+    "trace": {
+      "request_id": "ad0252380c25469d",
+      "name": "agent.request",
+      "span_id": "9200e4d7e44d48c7",
+      "started_at": 1791072706.3701398,
+      "ended_at": 1791072709.9590085,
+      "duration_ms": 3588.9,
+      "attributes": {
+        "session.id": "8e5773926298",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4613,
+        "gen_ai.usage.total_output_tokens": 293
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "7a0032c4153e4785",
+          "started_at": 1791072706.3707597,
+          "ended_at": 1791072707.8150682,
+          "duration_ms": 1444.3,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2177,
+            "gen_ai.usage.output_tokens": 128
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "0006a25cb72a4e1f",
+          "started_at": 1791072707.815181,
+          "ended_at": 1791072707.8165474,
+          "duration_ms": 1.4,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0001",
+              "amount": 381,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 381,
+              "mid_rate": 1.086957,
+              "tier": "tier1",
+              "spread_pct": 0.9,
+              "allowance_total_eur": 500,
+              "allowance_used_before_eur": 120.0,
+              "allowance_applied": false,
+              "gross_amount": 414.130435,
+              "spread_amount": 0.009783,
+              "final_amount": 414.120652
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "7755b5cb55194ab1",
+          "started_at": 1791072707.8166897,
+          "ended_at": 1791072709.9589994,
+          "duration_ms": 2142.3,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2436,
+            "gen_ai.usage.output_tokens": 165
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4613,
+      "output_tokens": 293
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2177,
+        "gen_ai.usage.output_tokens": 128
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2436,
+        "gen_ai.usage.output_tokens": 165
+      }
+    ]
+  },
+  {
+    "case_id": "FX-010",
+    "request_id": "4f674641ac894691",
+    "response": {
+      "session_id": "959b6d2d2b7b",
+      "request_id": "4f674641ac894691",
+      "answer": "Here's your FX conversion breakdown:\n\n- **Amount to convert:** 200 EUR\n- **Mid-market rate:** 1.086957 EUR/USD\n- **Your tier:** Tier 2\n- **Spread:** 0% (no charge on this conversion)\n- **Free allowance:** You have 1,000 EUR monthly; you've used 800 EUR before this, leaving 200 EUR available — which fully covers this conversion\n- **Gross amount before spread:** 217.39 USD\n- **Spread cost:** 0 USD\n\n**Final amount you receive: 217.39 USD**",
+      "step_number": 1,
+      "elapsed_ms": 3172.8,
+      "usage": {
+        "input_tokens": 4624,
+        "output_tokens": 277
+      }
+    },
+    "question": "I'm CUS-0002. Convert 200 EUR to USD. What is the final amount I receive?",
+    "trace": {
+      "request_id": "4f674641ac894691",
+      "name": "agent.request",
+      "span_id": "65b4499e0f904458",
+      "started_at": 1791072710.032844,
+      "ended_at": 1791072713.2056763,
+      "duration_ms": 3172.8,
+      "attributes": {
+        "session.id": "959b6d2d2b7b",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4624,
+        "gen_ai.usage.total_output_tokens": 277
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "8162d332aa6849a5",
+          "started_at": 1791072710.033175,
+          "ended_at": 1791072711.487767,
+          "duration_ms": 1454.6,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2180,
+            "gen_ai.usage.output_tokens": 133
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "1d880a3705c9410a",
+          "started_at": 1791072711.4878294,
+          "ended_at": 1791072711.489129,
+          "duration_ms": 1.3,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0002",
+              "amount": 200,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 200,
+              "mid_rate": 1.086957,
+              "tier": "tier2",
+              "spread_pct": 0.0,
+              "allowance_total_eur": 1000,
+              "allowance_used_before_eur": 800.0,
+              "allowance_applied": true,
+              "gross_amount": 217.391304,
+              "spread_amount": 0.0,
+              "final_amount": 217.391304
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "417875b024ed407a",
+          "started_at": 1791072711.489299,
+          "ended_at": 1791072713.2056663,
+          "duration_ms": 1716.4,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2444,
+            "gen_ai.usage.output_tokens": 144
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4624,
+      "output_tokens": 277
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2180,
+        "gen_ai.usage.output_tokens": 133
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2444,
+        "gen_ai.usage.output_tokens": 144
+      }
+    ]
+  },
+  {
+    "case_id": "FX-011",
+    "request_id": "4340658f9ad64271",
+    "response": {
+      "session_id": "2443bdc491c6",
+      "request_id": "4340658f9ad64271",
+      "answer": "Here's your conversion breakdown:\n\n- **Amount:** 201 EUR\n- **Mid rate:** 1.086957\n- **Your tier:** Tier 2\n- **Spread applied:** 1.5%\n- **Free allowance:** 1,000 EUR (you've already used 800 EUR, so 200 EUR remains)\n- **Allowance applied to this transaction:** No (your remaining allowance of 200 EUR is insufficient for this full amount)\n\n**Final amount you receive: 218.46 USD**\n\nThe spread of 1.5% applies to the entire 201 EUR since your free allowance is fully exhausted after this transaction.",
+      "step_number": 1,
+      "elapsed_ms": 3502.7,
+      "usage": {
+        "input_tokens": 4607,
+        "output_tokens": 269
+      }
+    },
+    "question": "I'm CUS-0002. Convert 201 EUR to USD. What is the final amount I receive?",
+    "trace": {
+      "request_id": "4340658f9ad64271",
+      "name": "agent.request",
+      "span_id": "0429b8fc266c4860",
+      "started_at": 1791072713.2843223,
+      "ended_at": 1791072716.786976,
+      "duration_ms": 3502.7,
+      "attributes": {
+        "session.id": "2443bdc491c6",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4607,
+        "gen_ai.usage.total_output_tokens": 269
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "86cdc8d2446f406f",
+          "started_at": 1791072713.2846808,
+          "ended_at": 1791072714.6649938,
+          "duration_ms": 1380.3,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2180,
+            "gen_ai.usage.output_tokens": 115
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "a5e052ec49c043ac",
+          "started_at": 1791072714.6651056,
+          "ended_at": 1791072714.6662002,
+          "duration_ms": 1.1,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0002",
+              "amount": 201,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 201,
+              "mid_rate": 1.086957,
+              "tier": "tier2",
+              "spread_pct": 1.5,
+              "allowance_total_eur": 1000,
+              "allowance_used_before_eur": 800.0,
+              "allowance_applied": false,
+              "gross_amount": 218.478261,
+              "spread_amount": 0.016304,
+              "final_amount": 218.461957
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "1e42df0e0b8f4ef4",
+          "started_at": 1791072714.6663082,
+          "ended_at": 1791072716.7869563,
+          "duration_ms": 2120.6,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2427,
+            "gen_ai.usage.output_tokens": 154
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4607,
+      "output_tokens": 269
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2180,
+        "gen_ai.usage.output_tokens": 115
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2427,
+        "gen_ai.usage.output_tokens": 154
+      }
+    ]
+  },
+  {
+    "case_id": "SWF-001",
+    "request_id": "2cc7c7be19334594",
+    "response": {
+      "session_id": "014c8e58a4f0",
+      "request_id": "2cc7c7be19334594",
+      "answer": "Based on the Verta tariff schedule, for a SWIFT transfer of 1000 EUR:\n\n- **Flat fee:** EUR 15.00\n- **Percentage fee:** 0.3% of EUR 1,000 = EUR 3.00\n- **Total fee: EUR 18.00**",
+      "step_number": 1,
+      "elapsed_ms": 2433.1,
+      "usage": {
+        "input_tokens": 5024,
+        "output_tokens": 160
+      }
+    },
+    "question": "I'm CUS-0001. For a SWIFT transfer of 1000 EUR, what is the TOTAL fee in EUR, including the flat and percentage components?",
+    "trace": {
+      "request_id": "2cc7c7be19334594",
+      "name": "agent.request",
+      "span_id": "884df84cdaf448e0",
+      "started_at": 1791072716.8888757,
+      "ended_at": 1791072719.3219342,
+      "duration_ms": 2433.1,
+      "attributes": {
+        "session.id": "014c8e58a4f0",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 5024,
+        "gen_ai.usage.total_output_tokens": 160
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "26ae3090113b46b9",
+          "started_at": 1791072716.8892365,
+          "ended_at": 1791072718.068268,
+          "duration_ms": 1179.0,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2192,
+            "gen_ai.usage.output_tokens": 86
+          },
+          "children": []
+        },
+        {
+          "name": "tool.search_knowledge_base",
+          "span_id": "9ac91594689541d3",
+          "started_at": 1791072718.068308,
+          "ended_at": 1791072718.0691078,
+          "duration_ms": 0.8,
+          "attributes": {
+            "tool.name": "search_knowledge_base",
+            "tool.arguments": {
+              "query": "SWIFT transfer fee EUR flat percentage"
+            },
+            "tool.result": {
+              "index": "kb_clean",
+              "top_k": 4,
+              "query": "SWIFT transfer fee EUR flat percentage",
+              "fragments": [
+                {
+                  "id": "tariffs.md#s3",
+                  "doc": "tariffs.md",
+                  "score": 2.1429,
+                  "text": "Verta tariff schedule\n## Transfer fees by type\n| Transfer type | Flat fee | Percentage fee |\n|---|---|---|\n| Internal | EUR 0.00 | 0% |\n| SEPA | EUR 0.35 | 0% |\n| SWIFT | EUR 15.00 | 0.3% |\n| Card payment | EUR 0.00 | 1.2% |\n\nThe percentage fee is calculated on the EUR equivalent of the transfer amount."
+                },
+                {
+                  "id": "fees-detail.md#s2",
+                  "doc": "fees-detail.md",
+                  "score": 1.6059,
+                  "text": "Fee details\n## Card payment fee\nCard payments carry a percentage fee on the EUR equivalent. No flat fee\napplies."
+                },
+                {
+                  "id": "fees-detail.md#s1",
+                  "doc": "fees-detail.md",
+                  "score": 1.3887,
+                  "text": "Fee details\n## How the SWIFT fee is composed\nA SWIFT transfer carries a flat fee plus a percentage of the EUR equivalent of\nthe amount sent. Correspondent bank charges deducted en route are outside the\ncontrol of Verta and are not refunded."
+                },
+                {
+                  "id": "limits.md#s1",
+                  "doc": "limits.md",
+                  "score": 1.0392,
+                  "text": "Transfer limits\n## Daily and monthly limits by tier\nOutgoing transfer limits are tracked in EUR equivalent, separately per day and\nper calendar month. The daily and the monthly remainder are different numbers:\nboth are computed from the same settled-transactions source, but over\ndifferent windows.\n\n| Tier | Daily limit | Monthly limit |\n|---|---|---|\n| Tier 1 | EUR 5,000 | EUR 50,000 |\n| Tier 2 | EUR 20,000 | EUR 200,000 |\n| Tier 3 | EUR 100,000 | EUR 1,000,000 |"
+                }
+              ]
+            },
+            "retrieval.query": "SWIFT transfer fee EUR flat percentage",
+            "retrieval.index": "kb_clean",
+            "retrieval.fragments": [
+              {
+                "id": "tariffs.md#s3",
+                "score": 2.1429
+              },
+              {
+                "id": "fees-detail.md#s2",
+                "score": 1.6059
+              },
+              {
+                "id": "fees-detail.md#s1",
+                "score": 1.3887
+              },
+              {
+                "id": "limits.md#s1",
+                "score": 1.0392
+              }
+            ]
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "93ea8a34310a4099",
+          "started_at": 1791072718.06918,
+          "ended_at": 1791072719.3219259,
+          "duration_ms": 1252.7,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2832,
+            "gen_ai.usage.output_tokens": 74
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 5024,
+      "output_tokens": 160
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2192,
+        "gen_ai.usage.output_tokens": 86
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2832,
+        "gen_ai.usage.output_tokens": 74
+      }
+    ]
+  },
+  {
+    "case_id": "SWF-002",
+    "request_id": "373af419cf974ae0",
+    "response": {
+      "session_id": "72ffc1d60698",
+      "request_id": "373af419cf974ae0",
+      "answer": "Based on the FX quote, 1000 USD = EUR 920.00 (at the mid rate). Now I can calculate the full SWIFT fee:\n\n**SWIFT Transfer Fee Breakdown:**\n- **Flat fee:** EUR 15.00\n- **Percentage fee:** 0.3% × EUR 920.00 = EUR 2.76\n- **TOTAL FEE:** EUR 15.00 + EUR 2.76 = **EUR 17.76**\n\nThis fee covers Verta's charges. Please note that correspondent banks may deduct additional charges en route, which are outside Verta's control and are not refunded.",
+      "step_number": 1,
+      "elapsed_ms": 6853.2,
+      "usage": {
+        "input_tokens": 8534,
+        "output_tokens": 511
+      }
+    },
+    "question": "I'm CUS-0001. For a SWIFT transfer of 1000 USD, what is the TOTAL fee in EUR, including the flat and percentage components?",
+    "trace": {
+      "request_id": "373af419cf974ae0",
+      "name": "agent.request",
+      "span_id": "ce62e626403e4045",
+      "started_at": 1791072719.400391,
+      "ended_at": 1791072726.2536008,
+      "duration_ms": 6853.2,
+      "attributes": {
+        "session.id": "72ffc1d60698",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 8534,
+        "gen_ai.usage.total_output_tokens": 511
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "e341d9e22751422b",
+          "started_at": 1791072719.4007366,
+          "ended_at": 1791072721.3509247,
+          "duration_ms": 1950.2,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2192,
+            "gen_ai.usage.output_tokens": 138
+          },
+          "children": []
+        },
+        {
+          "name": "tool.get_account",
+          "span_id": "77fcca2ae9834969",
+          "started_at": 1791072721.3509564,
+          "ended_at": 1791072721.3514037,
+          "duration_ms": 0.4,
+          "attributes": {
+            "tool.name": "get_account",
+            "tool.arguments": {
+              "customer_id": "CUS-0001"
+            },
+            "tool.result": {
+              "accounts": [
+                {
+                  "id": "ACC-1001",
+                  "customer_id": "CUS-0001",
+                  "currency": "EUR",
+                  "balance": 2450.3,
+                  "tier": "tier1",
+                  "holder": "Alice Novak"
+                }
+              ]
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "tool.search_knowledge_base",
+          "span_id": "84164264a8e64bbd",
+          "started_at": 1791072721.3514597,
+          "ended_at": 1791072721.3521535,
+          "duration_ms": 0.7,
+          "attributes": {
+            "tool.name": "search_knowledge_base",
+            "tool.arguments": {
+              "query": "SWIFT transfer fee structure flat percentage USD EUR"
+            },
+            "tool.result": {
+              "index": "kb_clean",
+              "top_k": 4,
+              "query": "SWIFT transfer fee structure flat percentage USD EUR",
+              "fragments": [
+                {
+                  "id": "tariffs.md#s3",
+                  "doc": "tariffs.md",
+                  "score": 2.1429,
+                  "text": "Verta tariff schedule\n## Transfer fees by type\n| Transfer type | Flat fee | Percentage fee |\n|---|---|---|\n| Internal | EUR 0.00 | 0% |\n| SEPA | EUR 0.35 | 0% |\n| SWIFT | EUR 15.00 | 0.3% |\n| Card payment | EUR 0.00 | 1.2% |\n\nThe percentage fee is calculated on the EUR equivalent of the transfer amount."
+                },
+                {
+                  "id": "fees-detail.md#s2",
+                  "doc": "fees-detail.md",
+                  "score": 1.6059,
+                  "text": "Fee details\n## Card payment fee\nCard payments carry a percentage fee on the EUR equivalent. No flat fee\napplies."
+                },
+                {
+                  "id": "fees-detail.md#s1",
+                  "doc": "fees-detail.md",
+                  "score": 1.3887,
+                  "text": "Fee details\n## How the SWIFT fee is composed\nA SWIFT transfer carries a flat fee plus a percentage of the EUR equivalent of\nthe amount sent. Correspondent bank charges deducted en route are outside the\ncontrol of Verta and are not refunded."
+                },
+                {
+                  "id": "limits.md#s1",
+                  "doc": "limits.md",
+                  "score": 1.0392,
+                  "text": "Transfer limits\n## Daily and monthly limits by tier\nOutgoing transfer limits are tracked in EUR equivalent, separately per day and\nper calendar month. The daily and the monthly remainder are different numbers:\nboth are computed from the same settled-transactions source, but over\ndifferent windows.\n\n| Tier | Daily limit | Monthly limit |\n|---|---|---|\n| Tier 1 | EUR 5,000 | EUR 50,000 |\n| Tier 2 | EUR 20,000 | EUR 200,000 |\n| Tier 3 | EUR 100,000 | EUR 1,000,000 |"
+                }
+              ]
+            },
+            "retrieval.query": "SWIFT transfer fee structure flat percentage USD EUR",
+            "retrieval.index": "kb_clean",
+            "retrieval.fragments": [
+              {
+                "id": "tariffs.md#s3",
+                "score": 2.1429
+              },
+              {
+                "id": "fees-detail.md#s2",
+                "score": 1.6059
+              },
+              {
+                "id": "fees-detail.md#s1",
+                "score": 1.3887
+              },
+              {
+                "id": "limits.md#s1",
+                "score": 1.0392
+              }
+            ]
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "72e6a0d9ed984522",
+          "started_at": 1791072721.3522356,
+          "ended_at": 1791072724.0186417,
+          "duration_ms": 2666.4,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2996,
+            "gen_ai.usage.output_tokens": 222
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "7080dba833c141c0",
+          "started_at": 1791072724.0187666,
+          "ended_at": 1791072724.020457,
+          "duration_ms": 1.7,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0001",
+              "amount": 1000,
+              "from_currency": "USD",
+              "to_currency": "EUR"
+            },
+            "tool.result": {
+              "from_currency": "USD",
+              "to_currency": "EUR",
+              "amount": 1000,
+              "mid_rate": 0.92,
+              "tier": "tier1",
+              "spread_pct": 0.9,
+              "allowance_total_eur": 500,
+              "allowance_used_before_eur": 120.0,
+              "allowance_applied": false,
+              "gross_amount": 920.0,
+              "spread_amount": 4.86,
+              "final_amount": 915.14
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "76d95f946c9d4521",
+          "started_at": 1791072724.0206516,
+          "ended_at": 1791072726.2535923,
+          "duration_ms": 2232.9,
+          "attributes": {
+            "agent.loop_step": 2,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 3346,
+            "gen_ai.usage.output_tokens": 151
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 8534,
+      "output_tokens": 511
+    },
+    "llm_calls": 3,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2192,
+        "gen_ai.usage.output_tokens": 138
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2996,
+        "gen_ai.usage.output_tokens": 222
+      },
+      {
+        "agent.loop_step": 2,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 3346,
+        "gen_ai.usage.output_tokens": 151
+      }
+    ]
+  },
+  {
+    "case_id": "CMP-C05",
+    "request_id": "7aab66dd288044ff",
+    "response": {
+      "session_id": "f41c8cccdd11",
+      "request_id": "7aab66dd288044ff",
+      "answer": "Here's your conversion breakdown:\n\n- **Amount:** 2,000 EUR\n- **Mid rate:** 1.086957 EUR/USD\n- **Gross amount (before spread):** 2,173.91 USD\n- **Your tier:** Tier 2\n- **Spread:** 1.5% = 32.61 USD\n- **Free allowance:** 1,000 EUR (already used: 5,000 EUR) — allowance exhausted, not applied\n- **Final amount you receive:** **2,141.30 USD**",
+      "step_number": 1,
+      "elapsed_ms": 3211.7,
+      "usage": {
+        "input_tokens": 4645,
+        "output_tokens": 266
+      }
+    },
+    "question": "I'm CUS-0005. Recalculate a 2000 EUR conversion to USD and state the final amount received after spread.",
+    "trace": {
+      "request_id": "7aab66dd288044ff",
+      "name": "agent.request",
+      "span_id": "6cf3b6f23e724958",
+      "started_at": 1791072726.3255029,
+      "ended_at": 1791072729.5372374,
+      "duration_ms": 3211.7,
+      "attributes": {
+        "session.id": "f41c8cccdd11",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4645,
+        "gen_ai.usage.total_output_tokens": 266
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "b734e34c02da49a0",
+          "started_at": 1791072726.325929,
+          "ended_at": 1791072727.7235658,
+          "duration_ms": 1397.6,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2187,
+            "gen_ai.usage.output_tokens": 135
+          },
+          "children": []
+        },
+        {
+          "name": "tool.quote_fx",
+          "span_id": "e6ea06ca6db348f3",
+          "started_at": 1791072727.72364,
+          "ended_at": 1791072727.7249198,
+          "duration_ms": 1.3,
+          "attributes": {
+            "tool.name": "quote_fx",
+            "tool.arguments": {
+              "customer_id": "CUS-0005",
+              "amount": 2000,
+              "from_currency": "EUR",
+              "to_currency": "USD"
+            },
+            "tool.result": {
+              "from_currency": "EUR",
+              "to_currency": "USD",
+              "amount": 2000,
+              "mid_rate": 1.086957,
+              "tier": "tier2",
+              "spread_pct": 1.5,
+              "allowance_total_eur": 1000,
+              "allowance_used_before_eur": 5000.0,
+              "allowance_applied": false,
+              "gross_amount": 2173.913043,
+              "spread_amount": 32.608696,
+              "final_amount": 2141.304348
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "4376c40a2e2c4216",
+          "started_at": 1791072727.725064,
+          "ended_at": 1791072729.5372179,
+          "duration_ms": 1812.2,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2458,
+            "gen_ai.usage.output_tokens": 131
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4645,
+      "output_tokens": 266
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2187,
+        "gen_ai.usage.output_tokens": 135
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2458,
+        "gen_ai.usage.output_tokens": 131
+      }
+    ]
+  },
+  {
+    "case_id": "CMP-C11",
+    "request_id": "a0a697c6899a480b",
+    "response": {
+      "session_id": "70ce27a1b57b",
+      "request_id": "a0a697c6899a480b",
+      "answer": "Transaction TX-0902 **is eligible** for dispute under fraud_card_not_present.\n\n**Details:**\n- **Reason code:** fraud_card_not_present — pass\n- **Transaction date:** 12 Sep 2026\n- **Dispute window:** 120 days\n- **Deadline:** 10 Jan 2027\n- **All checks:** passed (reason code, transaction status, window, compliance)\n\nYou have until 10 January 2027 to open the dispute. Would you like me to proceed with opening it?",
+      "step_number": 1,
+      "elapsed_ms": 3398.2,
+      "usage": {
+        "input_tokens": 4566,
+        "output_tokens": 213
+      }
+    },
+    "question": "I'm CUS-0009. Check whether TX-0902 is eligible for a dispute under fraud_card_not_present.",
+    "trace": {
+      "request_id": "a0a697c6899a480b",
+      "name": "agent.request",
+      "span_id": "cca03849e1614aba",
+      "started_at": 1791072729.6305637,
+      "ended_at": 1791072733.0287857,
+      "duration_ms": 3398.2,
+      "attributes": {
+        "session.id": "70ce27a1b57b",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4566,
+        "gen_ai.usage.total_output_tokens": 213
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "574c6b891349440c",
+          "started_at": 1791072729.630959,
+          "ended_at": 1791072731.0621946,
+          "duration_ms": 1431.2,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2185,
+            "gen_ai.usage.output_tokens": 87
+          },
+          "children": []
+        },
+        {
+          "name": "tool.check_dispute_eligibility",
+          "span_id": "c6a60180e9254eb9",
+          "started_at": 1791072731.062243,
+          "ended_at": 1791072731.0631213,
+          "duration_ms": 0.9,
+          "attributes": {
+            "tool.name": "check_dispute_eligibility",
+            "tool.arguments": {
+              "transaction_id": "TX-0902",
+              "reason_code": "fraud_card_not_present"
+            },
+            "tool.result": {
+              "eligible": true,
+              "reason_code": "fraud_card_not_present",
+              "window_days": 120,
+              "tx_date": "2026-09-12",
+              "as_of": "2026-09-15",
+              "deadline": "2027-01-10",
+              "checks": {
+                "reason_code": "pass",
+                "tx_status": "pass",
+                "window": "pass",
+                "compliance_hold": "pass"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "2345b95f8a6346b9",
+          "started_at": 1791072731.063235,
+          "ended_at": 1791072733.0287783,
+          "duration_ms": 1965.5,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2381,
+            "gen_ai.usage.output_tokens": 126
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4566,
+      "output_tokens": 213
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2185,
+        "gen_ai.usage.output_tokens": 87
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2381,
+        "gen_ai.usage.output_tokens": 126
+      }
+    ]
+  },
+  {
+    "case_id": "CMP-C12",
+    "request_id": "3391ec00910a4b59",
+    "response": {
+      "session_id": "483252e7c70e",
+      "request_id": "3391ec00910a4b59",
+      "answer": "TX-0201 is **eligible** for a dispute under duplicate_charge.\n\n**Details:**\n- **Transaction date:** 2026-09-08\n- **Dispute window:** 90 days\n- **Deadline:** 2026-12-07\n- **All checks passed:** reason code, transaction status, window, and compliance hold\n\nYou have until 2026-12-07 to open this dispute. Would you like me to proceed with creating the dispute?",
+      "step_number": 1,
+      "elapsed_ms": 2655.8,
+      "usage": {
+        "input_tokens": 4550,
+        "output_tokens": 190
+      }
+    },
+    "question": "I'm CUS-0002. Check whether TX-0201 is eligible for a dispute under duplicate_charge.",
+    "trace": {
+      "request_id": "3391ec00910a4b59",
+      "name": "agent.request",
+      "span_id": "6fecc04dc261441d",
+      "started_at": 1791072733.1035976,
+      "ended_at": 1791072735.7593486,
+      "duration_ms": 2655.8,
+      "attributes": {
+        "session.id": "483252e7c70e",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4550,
+        "gen_ai.usage.total_output_tokens": 190
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "1df891aad25649e5",
+          "started_at": 1791072733.1041858,
+          "ended_at": 1791072734.2210526,
+          "duration_ms": 1116.9,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2181,
+            "gen_ai.usage.output_tokens": 83
+          },
+          "children": []
+        },
+        {
+          "name": "tool.check_dispute_eligibility",
+          "span_id": "2942ec3a7fd245de",
+          "started_at": 1791072734.2211294,
+          "ended_at": 1791072734.2229307,
+          "duration_ms": 1.8,
+          "attributes": {
+            "tool.name": "check_dispute_eligibility",
+            "tool.arguments": {
+              "transaction_id": "TX-0201",
+              "reason_code": "duplicate_charge"
+            },
+            "tool.result": {
+              "eligible": true,
+              "reason_code": "duplicate_charge",
+              "window_days": 90,
+              "tx_date": "2026-09-08",
+              "as_of": "2026-09-15",
+              "deadline": "2026-12-07",
+              "checks": {
+                "reason_code": "pass",
+                "tx_status": "pass",
+                "window": "pass",
+                "compliance_hold": "pass"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "b1a6f6007bfd4017",
+          "started_at": 1791072734.2230704,
+          "ended_at": 1791072735.7593434,
+          "duration_ms": 1536.3,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2369,
+            "gen_ai.usage.output_tokens": 107
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4550,
+      "output_tokens": 190
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2181,
+        "gen_ai.usage.output_tokens": 83
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2369,
+        "gen_ai.usage.output_tokens": 107
+      }
+    ]
+  },
+  {
+    "case_id": "CMP-C14",
+    "request_id": "5e13d97b1da443b8",
+    "response": {
+      "session_id": "667fee07f50d",
+      "request_id": "5e13d97b1da443b8",
+      "answer": "Based on the knowledge base, here are all the dispute reason codes in their exact snake_case names:\n\n1. **fraud_card_not_present**\n2. **goods_not_received**\n3. **duplicate_charge**\n4. **service_not_rendered**\n5. **unauthorized_debit**\n\nThe dispute window for **duplicate_charge** is **60 days** from the transaction date.",
+      "step_number": 1,
+      "elapsed_ms": 2959.3,
+      "usage": {
+        "input_tokens": 5464,
+        "output_tokens": 212
+      }
+    },
+    "question": "I'm CUS-0002. List ALL dispute reason codes using their exact snake_case names, AND state the dispute window for duplicate_charge in days.",
+    "trace": {
+      "request_id": "5e13d97b1da443b8",
+      "name": "agent.request",
+      "span_id": "7d15dd80bfcc4fd1",
+      "started_at": 1791072735.8247886,
+      "ended_at": 1791072738.7840989,
+      "duration_ms": 2959.3,
+      "attributes": {
+        "session.id": "667fee07f50d",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 5464,
+        "gen_ai.usage.total_output_tokens": 212
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "e779280a2bed4145",
+          "started_at": 1791072735.825196,
+          "ended_at": 1791072737.125539,
+          "duration_ms": 1300.3,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2189,
+            "gen_ai.usage.output_tokens": 118
+          },
+          "children": []
+        },
+        {
+          "name": "tool.search_knowledge_base",
+          "span_id": "8b172c681ab74c1a",
+          "started_at": 1791072737.1256053,
+          "ended_at": 1791072737.1265016,
+          "duration_ms": 0.9,
+          "attributes": {
+            "tool.name": "search_knowledge_base",
+            "tool.arguments": {
+              "query": "dispute reason codes"
+            },
+            "tool.result": {
+              "index": "kb_clean",
+              "top_k": 4,
+              "query": "dispute reason codes",
+              "fragments": [
+                {
+                  "id": "disputes.md#s1",
+                  "doc": "disputes.md",
+                  "score": 1.0211,
+                  "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach dispute reason code has its own window, counted in days from the\ntransaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+                },
+                {
+                  "id": "disputes-process.md#s4",
+                  "doc": "disputes-process.md",
+                  "score": 0.7625,
+                  "text": "Dispute handling process\n## Review timelines\nThe review target is 10 business days for card reason codes and 20 business\ndays for transfer reason codes. Complex cases involving a foreign acquirer may\nrun to 45 calendar days; the customer is notified when that happens."
+                },
+                {
+                  "id": "disputes-process.md#s6",
+                  "doc": "disputes-process.md",
+                  "score": 0.7071,
+                  "text": "Dispute handling process\n## Withdrawing a dispute\nA customer may withdraw a dispute at any time before resolution. Withdrawal is\nfinal; the same transaction cannot be disputed again under the same reason code."
+                },
+                {
+                  "id": "notifications.md#s2",
+                  "doc": "notifications.md",
+                  "score": 0.6124,
+                  "text": "Notifications\n## Dispute updates\nA dispute generates a notification on every state change. The notification\nnames the state, never the internal reason for a decision."
+                }
+              ]
+            },
+            "retrieval.query": "dispute reason codes",
+            "retrieval.index": "kb_clean",
+            "retrieval.fragments": [
+              {
+                "id": "disputes.md#s1",
+                "score": 1.0211
+              },
+              {
+                "id": "disputes-process.md#s4",
+                "score": 0.7625
+              },
+              {
+                "id": "disputes-process.md#s6",
+                "score": 0.7071
+              },
+              {
+                "id": "notifications.md#s2",
+                "score": 0.6124
+              }
+            ]
+          },
+          "children": []
+        },
+        {
+          "name": "tool.search_knowledge_base",
+          "span_id": "8f61aa2d71f147bb",
+          "started_at": 1791072737.1266177,
+          "ended_at": 1791072737.1272786,
+          "duration_ms": 0.7,
+          "attributes": {
+            "tool.name": "search_knowledge_base",
+            "tool.arguments": {
+              "query": "duplicate_charge dispute window days"
+            },
+            "tool.result": {
+              "index": "kb_clean",
+              "top_k": 4,
+              "query": "duplicate_charge dispute window days",
+              "fragments": [
+                {
+                  "id": "disputes.md#s1",
+                  "doc": "disputes.md",
+                  "score": 1.3128,
+                  "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach dispute reason code has its own window, counted in days from the\ntransaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+                },
+                {
+                  "id": "limits-operations.md#s5",
+                  "doc": "limits-operations.md",
+                  "score": 0.8165,
+                  "text": "Limit operations\n## Window definition\nLimits are tracked on calendar days, not business days. The daily window runs\nfrom 00:00 to 23:59 CET."
+                },
+                {
+                  "id": "glossary.md#s3",
+                  "doc": "glossary.md",
+                  "score": 0.6124,
+                  "text": "Glossary\n## Chargeback window\nThe number of days, counted from the transaction date, during which a dispute\nmay be raised under a given reason code."
+                },
+                {
+                  "id": "disputes-process.md#s4",
+                  "doc": "disputes-process.md",
+                  "score": 0.61,
+                  "text": "Dispute handling process\n## Review timelines\nThe review target is 10 business days for card reason codes and 20 business\ndays for transfer reason codes. Complex cases involving a foreign acquirer may\nrun to 45 calendar days; the customer is notified when that happens."
+                }
+              ]
+            },
+            "retrieval.query": "duplicate_charge dispute window days",
+            "retrieval.index": "kb_clean",
+            "retrieval.fragments": [
+              {
+                "id": "disputes.md#s1",
+                "score": 1.3128
+              },
+              {
+                "id": "limits-operations.md#s5",
+                "score": 0.8165
+              },
+              {
+                "id": "glossary.md#s3",
+                "score": 0.6124
+              },
+              {
+                "id": "disputes-process.md#s4",
+                "score": 0.61
+              }
+            ]
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "0d7dbdc8ea514b32",
+          "started_at": 1791072737.1273618,
+          "ended_at": 1791072738.7840617,
+          "duration_ms": 1656.7,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 3275,
+            "gen_ai.usage.output_tokens": 94
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 5464,
+      "output_tokens": 212
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2189,
+        "gen_ai.usage.output_tokens": 118
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 3275,
+        "gen_ai.usage.output_tokens": 94
+      }
+    ]
+  },
+  {
+    "case_id": "LIM-HW2-DAILY",
+    "request_id": "9f531cefde5f4529",
+    "response": {
+      "session_id": "edecdae170ce",
+      "request_id": "9f531cefde5f4529",
+      "answer": "Your remaining daily transfer limit is **EUR 20,000**.\n\nThis is calculated as: daily limit of EUR 20,000 minus EUR 0 spent today, leaving you with the full daily allowance available.",
+      "step_number": 1,
+      "elapsed_ms": 2189.3,
+      "usage": {
+        "input_tokens": 4524,
+        "output_tokens": 109
+      }
+    },
+    "question": "I'm CUS-0002. Use check_limits and tell me my remaining DAILY transfer limit in EUR.",
+    "trace": {
+      "request_id": "9f531cefde5f4529",
+      "name": "agent.request",
+      "span_id": "1ae02a2cfca74b63",
+      "started_at": 1791072758.256126,
+      "ended_at": 1791072760.4454334,
+      "duration_ms": 2189.3,
+      "attributes": {
+        "session.id": "edecdae170ce",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4524,
+        "gen_ai.usage.total_output_tokens": 109
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "ba3a4233d4fa4559",
+          "started_at": 1791072758.2571163,
+          "ended_at": 1791072759.3039556,
+          "duration_ms": 1046.8,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2180,
+            "gen_ai.usage.output_tokens": 60
+          },
+          "children": []
+        },
+        {
+          "name": "tool.check_limits",
+          "span_id": "e5d301d6cce74d4f",
+          "started_at": 1791072759.3041477,
+          "ended_at": 1791072759.3071666,
+          "duration_ms": 3.0,
+          "attributes": {
+            "tool.name": "check_limits",
+            "tool.arguments": {
+              "customer_id": "CUS-0002"
+            },
+            "tool.result": {
+              "tier": "tier2",
+              "as_of": "2026-09-15",
+              "daily_limit_eur": 20000,
+              "daily_spent_eur": 0,
+              "daily_remaining_eur": 20000,
+              "monthly_limit_eur": 200000,
+              "monthly_spent_eur": 1036.78,
+              "monthly_remaining_eur": 20000
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "6341294a0cb544bf",
+          "started_at": 1791072759.3074207,
+          "ended_at": 1791072760.445429,
+          "duration_ms": 1138.0,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2344,
+            "gen_ai.usage.output_tokens": 49
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4524,
+      "output_tokens": 109
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2180,
+        "gen_ai.usage.output_tokens": 60
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2344,
+        "gen_ai.usage.output_tokens": 49
+      }
+    ]
+  },
+  {
+    "case_id": "LIM-HW2-MONTHLY",
+    "request_id": "b87be3e178674a7c",
+    "response": {
+      "session_id": "277620c33355",
+      "request_id": "b87be3e178674a7c",
+      "answer": "Your remaining monthly transfer limit is **EUR 20,000** (as of 15 September 2026).\n\nYou are on tier2 with a monthly limit of EUR 200,000, and you've spent EUR 1,036.78 so far this month.",
+      "step_number": 1,
+      "elapsed_ms": 2657.5,
+      "usage": {
+        "input_tokens": 4532,
+        "output_tokens": 130
+      }
+    },
+    "question": "I'm CUS-0002. Use check_limits and tell me my remaining MONTHLY transfer limit in EUR.",
+    "trace": {
+      "request_id": "b87be3e178674a7c",
+      "name": "agent.request",
+      "span_id": "b68f65ecf3754595",
+      "started_at": 1791072760.5262048,
+      "ended_at": 1791072763.1836734,
+      "duration_ms": 2657.5,
+      "attributes": {
+        "session.id": "277620c33355",
+        "dialog.step_number": 1,
+        "run.profile": "lesson-03",
+        "run.active_defects": [
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D26"
+        ],
+        "prompt.version": "base.v1",
+        "llm.provider": "anthropic",
+        "context.replay_active": false,
+        "gen_ai.usage.total_input_tokens": 4532,
+        "gen_ai.usage.total_output_tokens": 130
+      },
+      "children": [
+        {
+          "name": "llm.call",
+          "span_id": "0323f029f8bf4a40",
+          "started_at": 1791072760.526599,
+          "ended_at": 1791072761.7308373,
+          "duration_ms": 1204.2,
+          "attributes": {
+            "agent.loop_step": 0,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2180,
+            "gen_ai.usage.output_tokens": 68
+          },
+          "children": []
+        },
+        {
+          "name": "tool.check_limits",
+          "span_id": "b860a981a9954e30",
+          "started_at": 1791072761.7308888,
+          "ended_at": 1791072761.7325807,
+          "duration_ms": 1.7,
+          "attributes": {
+            "tool.name": "check_limits",
+            "tool.arguments": {
+              "customer_id": "CUS-0002"
+            },
+            "tool.result": {
+              "tier": "tier2",
+              "as_of": "2026-09-15",
+              "daily_limit_eur": 20000,
+              "daily_spent_eur": 0,
+              "daily_remaining_eur": 20000,
+              "monthly_limit_eur": 200000,
+              "monthly_spent_eur": 1036.78,
+              "monthly_remaining_eur": 20000
+            }
+          },
+          "children": []
+        },
+        {
+          "name": "llm.call",
+          "span_id": "4a7b3c5339504b75",
+          "started_at": 1791072761.7327027,
+          "ended_at": 1791072763.183668,
+          "duration_ms": 1451.0,
+          "attributes": {
+            "agent.loop_step": 1,
+            "gen_ai.request.model": "claude-haiku-4-5-20251001",
+            "gen_ai.usage.input_tokens": 2352,
+            "gen_ai.usage.output_tokens": 62
+          },
+          "children": []
+        }
+      ]
+    },
+    "usage": {
+      "input_tokens": 4532,
+      "output_tokens": 130
+    },
+    "llm_calls": 2,
+    "llm_call_attributes": [
+      {
+        "agent.loop_step": 0,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2180,
+        "gen_ai.usage.output_tokens": 68
+      },
+      {
+        "agent.loop_step": 1,
+        "gen_ai.request.model": "claude-haiku-4-5-20251001",
+        "gen_ai.usage.input_tokens": 2352,
+        "gen_ai.usage.output_tokens": 62
+      }
+    ]
+  }
+]

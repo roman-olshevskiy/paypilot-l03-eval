@@ -1,0 +1,102 @@
+{
+  "recorded_on": "2026-10-04",
+  "set_hash": "92f5e7f20c48",
+  "full_sha256": "92F5E7F20C48A91A0FE03C5307ABFD8F6FBD0345B595320D96525CDE812130D6",
+  "cases": 35,
+  "own_cases": 23,
+  "human_cases": 5,
+  "daily_cases": 30,
+  "release_cases": 5,
+  "sources": {
+    "complaint": 7,
+    "engine": 12,
+    "edge": 16
+  },
+  "oracles": {
+    "engine": 29,
+    "corpus": 1,
+    "human": 5
+  },
+  "levels": [
+    1,
+    2,
+    3,
+    4,
+    7
+  ],
+  "severity_filled_pct": 100,
+  "offline_tests": {
+    "passed": 6,
+    "total": 6
+  },
+  "preflight": {
+    "passed": 1,
+    "total": 1,
+    "model_calls": 0,
+    "profile_clock_prompt_restored": true,
+    "database_reset": true
+  },
+  "live_eval_runs": 0,
+  "forecast_committed": false,
+  "git_remote": "https://github.com/roman-olshevskiy/paypilot-hw2.git",
+  "preliminary_budget": {
+    "chat_requests": 90,
+    "reference": "L02 agent-only USD0.383063 / 65 chat responses",
+    "estimated_usd": 0.530394923076923,
+    "planning_reserve_usd": 1.1,
+    "measured": false,
+    "automatically_enforced": false
+  },
+  "files": [
+    {
+      "kit_path": "sets/golden.jsonl",
+      "submission_path": "golden.jsonl",
+      "sha256": "92F5E7F20C48A91A0FE03C5307ABFD8F6FBD0345B595320D96525CDE812130D6"
+    },
+    {
+      "kit_path": "generate_golden.py",
+      "submission_path": "generate_golden.py",
+      "sha256": "D66007CAEC1865E3F74B947BEF1DB78EB3FE1044F2B79F72AD250F479CBD5FE6"
+    },
+    {
+      "kit_path": "HW2-README.md",
+      "submission_path": "README.md",
+      "sha256": "2EF7ADECA53FD2EFAC15B68BBCAC9B9C3C34639B850B509AD3A19C13768F03CE"
+    },
+    {
+      "kit_path": "case-provenance.md",
+      "submission_path": "case-provenance.md",
+      "sha256": "DFDB17C82ED0F6C546DB964269A61C4626BA57678CEA0048B536700CED75FF23"
+    },
+    {
+      "kit_path": "residual-risk.md",
+      "submission_path": "residual-risk.md",
+      "sha256": "64F8345BD17C2B3E5126B30C2C572D1C0744D40A4F42FE012ACA1C2D79E64C1E"
+    },
+    {
+      "kit_path": "hw2_capture.py",
+      "submission_path": "hw2_capture.py",
+      "sha256": "76D985FD2F5125054926799FF72C0617FBF2E9B3A52D25FA79CDEF24E0B065D4"
+    },
+    {
+      "kit_path": "hw2_runtime.py",
+      "submission_path": "hw2_runtime.py",
+      "sha256": "F089A2D1BA527DDAD76DC308EB5D0AD5CFF2A14BAEEC2AE0604F9C3C6672C167"
+    },
+    {
+      "kit_path": "tests/test_hw2_contract.py",
+      "submission_path": "tests/test_hw2_contract.py",
+      "sha256": "2710AB4DA669A3625529A9633EE756F7D8CD9AE202705C117A96AB7CFF58F3AA"
+    },
+    {
+      "kit_path": "tests/test_preflight_hw2.py",
+      "submission_path": "tests/test_preflight_hw2.py",
+      "sha256": "371B2408454CC1A2B07A651C5F50F89F740A10D417E3B78DA9DAB01E8B47DBDF"
+    },
+    {
+      "kit_path": "tests/test_live_hw2.py",
+      "submission_path": "tests/test_live_hw2.py",
+      "sha256": "BD1DED41EB3671DF7736714B9C7FC26E80AD5F3C9706B4B929ED59887D7362A5"
+    }
+  ]
+}

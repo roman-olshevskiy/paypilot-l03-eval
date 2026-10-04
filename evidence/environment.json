@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-04",
+  "docker_version": "29.8.0",
+  "eval_image": "python:3.12-slim",
+  "eval_image_id": "sha256:dddfd7e07f9d15aeeca61529320492139d21cac7f0070c00609243e51e4e0016",
+  "kit_commit": "8108fc88f2cd39d193b09cb326b8463f8c439345",
+  "stand_commit": "a876b7311d2b0a36bf4cb361cb4d27d5e211d5f2",
+  "clock": "2026-09-15T10:00:00Z",
+  "gate": "daily",
+  "judge_model": "not-used",
+  "stand_model_proof": "preflight.json",
+  "stand_dir": "../paypilot-stand",
+  "service_url": "http://host.docker.internal:8000",
+  "live_runs": 0,
+  "eval_python_version": "Python 3.12.15"
+}
