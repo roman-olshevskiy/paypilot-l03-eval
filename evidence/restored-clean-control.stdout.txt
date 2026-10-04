@@ -1,0 +1,21 @@
+set golden (1 cases)  profile clean  prompt base.v1  gate daily
+------------------------------------------------------------------------
+PASS  FX-007     L2 generation  tool_grounded_numeric  4.1s, 4876 tokens
+      question  I'm CUS-0007. Convert 1001 EUR to USD. What is the final amount I receive?
+      expected  quote_fx.final_amount = 1078.25 +/-0.02, and the same figure in the answer
+      tool      quote_fx(customer_id=CUS-0007, amount=1001, from_currency=EUR, to_currency=USD)
+                -> final_amount=1078.251087, from_currency=EUR, to_currency=USD, amount=1001,
+                mid_rate=1.086957, tier=tier2, spread_pct=0.9, allowance_total_eur=1000,
+                allowance_used_before_eur=0.0, allowance_applied=False, gross_amount=1088.043478, …
+      verdict   quote_fx.final_amount = 1078.251087
+      answer    Here's your FX conversion breakdown:
+                Amount to convert: 1,001 EUR
+                Mid rate: 1.086957 EUR/USD
+                Tier: tier2
+                Spread: 0.9%
+                Calculation: …
+
+------------------------------------------------------------------------
+1/1 passed   elapsed 4.2s
+  generation   1/1
+report -> evals/reports/golden-clean-20261004T001927.json

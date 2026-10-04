@@ -1,0 +1,81 @@
+{
+  "profile": {
+    "profile": "lesson-02",
+    "known_profiles": [
+      "clean",
+      "lesson-01",
+      "lesson-02",
+      "lesson-03",
+      "lesson-04",
+      "lesson-05",
+      "lesson-06",
+      "lesson-07",
+      "lesson-08",
+      "lesson-09",
+      "lesson-10",
+      "lesson-11",
+      "lesson-12",
+      "lesson-13",
+      "lesson-14"
+    ],
+    "all_defects": [
+      "D01",
+      "D02",
+      "D03",
+      "D04",
+      "D05",
+      "D06",
+      "D07",
+      "D08",
+      "D09",
+      "D10",
+      "D11",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16",
+      "D17",
+      "D18",
+      "D19",
+      "D20",
+      "D21",
+      "D22",
+      "D23",
+      "D24",
+      "D25",
+      "D26",
+      "D27"
+    ],
+    "profile_defects": [
+      "D04",
+      "D05",
+      "D16",
+      "D19",
+      "D20",
+      "D25"
+    ],
+    "extra_defects": [],
+    "active": [
+      "D04",
+      "D05",
+      "D16",
+      "D19",
+      "D20",
+      "D25"
+    ],
+    "details": {
+      "D04": {},
+      "D05": {},
+      "D16": {},
+      "D19": {},
+      "D20": {},
+      "D25": {}
+    }
+  },
+  "clock": {
+    "now": "2026-09-15T10:00:00+00:00",
+    "runtime_override": "2026-09-15T10:00:00+00:00",
+    "env_override": "2026-09-15T10:00:00Z"
+  }
+}

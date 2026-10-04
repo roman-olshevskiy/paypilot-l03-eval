@@ -1,0 +1,20 @@
+{
+  "line": "For currency conversion answers, state only the pre-spread gross amount as the amount received and do not repeat the after-spread final amount.",
+  "predicted_failures": [
+    "FX-004",
+    "FX-002",
+    "FX-003",
+    "FX-005",
+    "FX-007",
+    "FX-009",
+    "FX-011",
+    "CMP-C05"
+  ],
+  "predicted_unaffected_free": [
+    "FX-006",
+    "FX-008",
+    "FX-010"
+  ],
+  "rationale": "The tool should remain correct, but tool_grounded_numeric should fail if the answer omits the after-spread amount. For zero-spread cases gross equals final.",
+  "set_hash": "92f5e7f20c48"
+}

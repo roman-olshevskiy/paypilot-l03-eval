@@ -1,0 +1,316 @@
+{
+  "clock": "2026-09-15T10:00:00Z",
+  "sha256": "92f5e7f20c48a91a0fe03c5307abfd8f6fbd0345b595320d96525cde812130d6",
+  "cases": [
+    {
+      "id": "FX-004",
+      "origin": "kit",
+      "added_in": "l03",
+      "source": "complaint",
+      "novelty": "Retained kit scenario, not counted as own.",
+      "engine_call": "fx.quote(2000, 'EUR', 'USD', 'tier2', allowance_used_eur=0.0).final_amount",
+      "result": 2154.347826086956
+    },
+    {
+      "id": "CMP-004",
+      "origin": "kit",
+      "added_in": "l03",
+      "source": "complaint",
+      "novelty": "Retained kit scenario, not counted as own."
+    },
+    {
+      "id": "FX-002",
+      "origin": "kit",
+      "added_in": "l03",
+      "source": "engine",
+      "novelty": "Retained kit scenario, not counted as own.",
+      "engine_call": "fx.quote(3000, 'EUR', 'USD', 'tier2', allowance_used_eur=800.0).final_amount",
+      "result": 3231.5217391304345
+    },
+    {
+      "id": "FX-003",
+      "origin": "kit",
+      "added_in": "l03",
+      "source": "engine",
+      "novelty": "Retained kit scenario, not counted as own.",
+      "engine_call": "fx.quote(6000, 'EUR', 'USD', 'tier2', allowance_used_eur=5000.0).final_amount",
+      "result": 6463.043478260869
+    },
+    {
+      "id": "FX-003-S",
+      "origin": "kit",
+      "added_in": "l03",
+      "source": "engine",
+      "novelty": "Retained kit scenario, not counted as own.",
+      "engine_call": "fx.quote(6000, 'EUR', 'USD', 'tier2', allowance_used_eur=5000.0).spread_pct",
+      "result": 0.9
+    },
+    {
+      "id": "FX-005",
+      "origin": "kit",
+      "added_in": "l03",
+      "source": "engine",
+      "novelty": "Retained kit scenario, not counted as own.",
+      "engine_call": "fx.quote(5000, 'GBP', 'EUR', 'tier3', allowance_used_eur=15000.0).final_amount",
+      "result": 5820.75
+    },
+    {
+      "id": "LIM-001",
+      "origin": "kit",
+      "added_in": "l03",
+      "source": "engine",
+      "novelty": "Retained kit scenario, not counted as own.",
+      "engine_call": "limits.status('tier3', date(2026, 9, 15), [{'date': date(2026, 9, 15), 'amount_eur': 4914.0}, {'date': date(2026, 9, 2), 'amount_eur': 30419.999999999996}]).monthly_remaining_eur",
+      "result": 964666.0
+    },
+    {
+      "id": "LIM-003",
+      "origin": "kit",
+      "added_in": "l03",
+      "source": "engine",
+      "novelty": "Retained kit scenario, not counted as own.",
+      "engine_call": "limits.status('tier3', date(2026, 9, 15), [{'date': date(2026, 9, 15), 'amount_eur': 4914.0}, {'date': date(2026, 9, 2), 'amount_eur': 30419.999999999996}]).monthly_remaining_eur",
+      "result": 964666.0
+    },
+    {
+      "id": "DIS-001",
+      "origin": "kit",
+      "added_in": "l03",
+      "source": "engine",
+      "novelty": "Retained kit scenario, not counted as own.",
+      "engine_call": "policy.DISPUTE_WINDOWS_DAYS['duplicate_charge']",
+      "result": 60
+    },
+    {
+      "id": "DIS-002-N",
+      "origin": "kit",
+      "added_in": "l03",
+      "source": "engine",
+      "novelty": "Retained kit scenario, not counted as own.",
+      "engine_call": "disputes.check('duplicate_charge', date(2026, 7, 14), 'settled', date(2026, 9, 15), compliance_hold=False).eligible",
+      "result": false
+    },
+    {
+      "id": "DIS-006",
+      "origin": "kit",
+      "added_in": "l03",
+      "source": "engine",
+      "novelty": "Retained kit scenario, not counted as own.",
+      "engine_call": "disputes.check('duplicate_charge', date(2026, 7, 14), 'settled', date(2026, 9, 15), compliance_hold=False).eligible",
+      "result": false
+    },
+    {
+      "id": "DIS-007",
+      "origin": "kit",
+      "added_in": "l03",
+      "source": "engine",
+      "novelty": "Retained kit scenario, not counted as own.",
+      "engine_call": "disputes.check('goods_not_received', date(2026, 8, 16), 'settled', date(2026, 9, 15), compliance_hold=True).eligible",
+      "result": false
+    },
+    {
+      "id": "FX-006",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "New CUS-0007/1000EUR boundary, absent from kit generation plan.",
+      "engine_call": "fx.quote(1000, 'EUR', 'USD', 'tier2', allowance_used_eur=0.0).final_amount",
+      "result": 1086.9565217391303
+    },
+    {
+      "id": "FX-006-S",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "New CUS-0007/1000EUR boundary, absent from kit generation plan. This case checks spread_pct rather than final_amount.",
+      "engine_call": "fx.quote(1000, 'EUR', 'USD', 'tier2', allowance_used_eur=0.0).spread_pct",
+      "result": 0.0
+    },
+    {
+      "id": "FX-007",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "New CUS-0007/1001EUR boundary, absent from kit generation plan.",
+      "engine_call": "fx.quote(1001, 'EUR', 'USD', 'tier2', allowance_used_eur=0.0).final_amount",
+      "result": 1078.2510869565217
+    },
+    {
+      "id": "FX-007-S",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "New CUS-0007/1001EUR boundary, absent from kit generation plan. This case checks spread_pct rather than final_amount.",
+      "engine_call": "fx.quote(1001, 'EUR', 'USD', 'tier2', allowance_used_eur=0.0).spread_pct",
+      "result": 0.9
+    },
+    {
+      "id": "FX-008",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "New CUS-0001/380EUR boundary, absent from kit generation plan.",
+      "engine_call": "fx.quote(380, 'EUR', 'USD', 'tier1', allowance_used_eur=120.0).final_amount",
+      "result": 413.04347826086956
+    },
+    {
+      "id": "FX-008-S",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "New CUS-0001/380EUR boundary, absent from kit generation plan. This case checks spread_pct rather than final_amount.",
+      "engine_call": "fx.quote(380, 'EUR', 'USD', 'tier1', allowance_used_eur=120.0).spread_pct",
+      "result": 0.0
+    },
+    {
+      "id": "FX-009",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "New CUS-0001/381EUR boundary, absent from kit generation plan.",
+      "engine_call": "fx.quote(381, 'EUR', 'USD', 'tier1', allowance_used_eur=120.0).final_amount",
+      "result": 407.91847826086956
+    },
+    {
+      "id": "FX-009-S",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "New CUS-0001/381EUR boundary, absent from kit generation plan. This case checks spread_pct rather than final_amount.",
+      "engine_call": "fx.quote(381, 'EUR', 'USD', 'tier1', allowance_used_eur=120.0).spread_pct",
+      "result": 1.5
+    },
+    {
+      "id": "FX-010",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "New CUS-0002/200EUR boundary, absent from kit generation plan.",
+      "engine_call": "fx.quote(200, 'EUR', 'USD', 'tier2', allowance_used_eur=800.0).final_amount",
+      "result": 217.39130434782606
+    },
+    {
+      "id": "FX-011",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "New CUS-0002/201EUR boundary, absent from kit generation plan.",
+      "engine_call": "fx.quote(201, 'EUR', 'USD', 'tier2', allowance_used_eur=800.0).final_amount",
+      "result": 216.51195652173914
+    },
+    {
+      "id": "SWF-001",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "complaint",
+      "novelty": "No SWIFT fee case exists in the kit set or unchanged engine generator.",
+      "engine_call": "fx.transfer_fee(policy.to_eur(1000, 'EUR'), 'swift')['total_fee_eur']",
+      "result": 18.0
+    },
+    {
+      "id": "SWF-002",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "No SWIFT fee case exists in the kit set or unchanged engine generator.",
+      "engine_call": "fx.transfer_fee(policy.to_eur(1000, 'USD'), 'swift')['total_fee_eur']",
+      "result": 17.76
+    },
+    {
+      "id": "CMP-C05",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "New 2000 EUR amount for CUS-0005; original C-05 is 6000 EUR and already represented by kit FX-003, so this is an edge variant, not a new reproduced complaint.",
+      "engine_call": "fx.quote(2000, 'EUR', 'USD', 'tier2', allowance_used_eur=5000.0).final_amount",
+      "result": 2154.347826086956
+    },
+    {
+      "id": "CMP-C11",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "complaint",
+      "novelty": "PharmaPlus TX-0902 belongs to CUS-0009 in the complaint and is absent from the kit generator and demo.",
+      "engine_call": "disputes.check('fraud_card_not_present', date(2026, 9, 12), 'settled', date(2026, 9, 15), compliance_hold=False).eligible",
+      "result": true
+    },
+    {
+      "id": "CMP-C12",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "complaint",
+      "novelty": "CloudServe TX-0201 is absent from both kit generator and demo eligibility cases.",
+      "engine_call": "disputes.check('duplicate_charge', date(2026, 9, 8), 'settled', date(2026, 9, 15), compliance_hold=False).eligible",
+      "result": true
+    },
+    {
+      "id": "CMP-C14",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "complaint",
+      "novelty": "New two-part completeness case: all reason codes plus the duplicate window; neither kit set nor generator has this combination.",
+      "engine_call": "dict(policy.DISPUTE_WINDOWS_DAYS)",
+      "result": {
+        "fraud_card_not_present": 120,
+        "goods_not_received": 90,
+        "duplicate_charge": 60,
+        "service_not_rendered": 90,
+        "unauthorized_debit": 56
+      }
+    },
+    {
+      "id": "LIM-HW2-DAILY",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "engine",
+      "novelty": "CUS-0002 is absent from the kit limit generator plan (CUS-0010 and CUS-0001).",
+      "engine_call": "limits.status('tier2', date(2026, 9, 15), [{'date': date(2026, 9, 8), 'amount_eur': 89.99}, {'date': date(2026, 9, 8), 'amount_eur': 82.7908}, {'date': date(2026, 9, 12), 'amount_eur': 450.0}, {'date': date(2026, 9, 12), 'amount_eur': 414.0}]).daily_remaining_eur",
+      "result": 20000
+    },
+    {
+      "id": "LIM-HW2-MONTHLY",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "engine",
+      "novelty": "CUS-0002 is absent from the kit limit generator plan (CUS-0010 and CUS-0001).",
+      "engine_call": "limits.status('tier2', date(2026, 9, 15), [{'date': date(2026, 9, 8), 'amount_eur': 89.99}, {'date': date(2026, 9, 8), 'amount_eur': 82.7908}, {'date': date(2026, 9, 12), 'amount_eur': 450.0}, {'date': date(2026, 9, 12), 'amount_eur': 414.0}]).monthly_remaining_eur",
+      "result": 198963.2192
+    },
+    {
+      "id": "TON-HW2-001",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "complaint",
+      "novelty": "Authored situational rubric absent from kit."
+    },
+    {
+      "id": "TON-HW2-002",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "Authored situational rubric absent from kit."
+    },
+    {
+      "id": "TON-HW2-003",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "Authored situational rubric absent from kit."
+    },
+    {
+      "id": "TON-HW2-004",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "Authored situational rubric absent from kit."
+    },
+    {
+      "id": "TON-HW2-005",
+      "origin": "own",
+      "added_in": "hw2",
+      "source": "edge",
+      "novelty": "Authored situational rubric absent from kit."
+    }
+  ],
+  "generator_sha256": "d66007caec1865e3f74b947bef1db78eb3fe1044f2b79f72ad250f479cbd5fe6"
+}

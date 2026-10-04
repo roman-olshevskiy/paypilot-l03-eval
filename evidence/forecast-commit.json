@@ -1,0 +1,17 @@
+{
+  "commit": "1768082aba930dd6a08fea499c3a967de57d1222",
+  "committed_at": "2026-10-04T00:12:01+00:00",
+  "repository": "https://github.com/roman-olshevskiy/paypilot-hw2",
+  "line": "For currency conversion answers, state only the pre-spread gross amount as the amount received and do not repeat the after-spread final amount.",
+  "predicted_failures": [
+    "FX-004",
+    "FX-002",
+    "FX-003",
+    "FX-005",
+    "FX-007",
+    "FX-009",
+    "FX-011",
+    "CMP-C05"
+  ],
+  "set_hash": "92f5e7f20c48"
+}

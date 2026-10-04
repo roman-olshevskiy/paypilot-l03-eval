@@ -1,0 +1,13 @@
+ Container paypilot-l03-eval-eval-run-65402966bef3 Creating 
+ Container paypilot-l03-eval-eval-run-65402966bef3 Created 
+test_full_capture_and_state_restoration_after_failure (test_hw2_contract.EvidenceGuards.test_full_capture_and_state_restoration_after_failure) ... ok
+test_prompt_restore_after_failure (test_hw2_contract.EvidenceGuards.test_prompt_restore_after_failure) ... ok
+test_boundary_and_original_files (test_hw2_contract.GoldenContract.test_boundary_and_original_files) ... ok
+test_engine_expectations_and_complaint_identity (test_hw2_contract.GoldenContract.test_engine_expectations_and_complaint_identity) ... ok
+test_homework_contract (test_hw2_contract.GoldenContract.test_homework_contract) ... ok
+test_not_renamed_kit (test_hw2_contract.GoldenContract.test_not_renamed_kit) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.034s
+
+OK
