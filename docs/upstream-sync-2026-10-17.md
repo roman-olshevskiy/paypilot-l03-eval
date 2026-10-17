@@ -22,3 +22,6 @@ Impact on HW2:
 - hw2_runtime.py still targets the original local stand for historical runs. Migrating it to shared, adding remote key headers, and mutating a shared runtime prompt are not part of this sync.
 
 Validation results are recorded in the PR.
+
+Validation: 6 offline acceptance/guard tests passed, including customer_id forwarding and historical-kit hashes.
+Git verification: submitted reports/evidence/course-work/golden have no changes relative to fork main. No live provider calls.
