@@ -270,3 +270,8 @@ docker compose --profile host run --rm eval-host
 
 Змінні й команди в нього ті самі, що в `eval`. Стенд на іншому порту — у
 `.env` задай `EVAL_STAND_URL=http://127.0.0.1:<порт>`.
+
+
+## Local fork: upstream synchronization
+
+[2026-10-17 compatibility and impact on completed homework](docs/upstream-sync-2026-10-17.md).
