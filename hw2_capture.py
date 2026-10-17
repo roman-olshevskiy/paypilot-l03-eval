@@ -33,8 +33,8 @@ def run(argv):
     before_reports = set((HERE / "reports").glob("*.json"))
     code = None
 
-    def chat(message, session_id=None):
-        response = old_chat(message, session_id)
+    def chat(message, session_id=None, customer_id=None):
+        response = old_chat(message, session_id, customer_id=customer_id)
         responses[response["request_id"]] = {"response": response, "question": message}
         return response
 

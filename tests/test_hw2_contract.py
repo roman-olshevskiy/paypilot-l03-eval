@@ -2,6 +2,7 @@
 import importlib.util
 import json
 import hashlib
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -82,8 +83,13 @@ class GoldenContract(unittest.TestCase):
         self.assertEqual(byid["FX-009-S"]["additional_metadata"]["expected_number"], G.policy.FX_SPREAD_PCT["tier1"])
         baseline = json.loads((HERE / "evidence/kit-baseline-manifest.json").read_text())
         for entry in baseline["files"]:
-            self.assertEqual(hashlib.sha256((HERE / entry["path"]).read_bytes()).hexdigest().upper(),
-                             entry["sha256"], entry["path"])
+            # This manifest describes the submitted HW2 kit, not future upstream files.
+            data = subprocess.check_output(
+                ["git", "show", baseline["kit_commit"] + ":" + entry["path"]], cwd=HERE)
+            candidates = (data, data.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n"))
+            self.assertIn(entry["sha256"],
+                          {hashlib.sha256(value).hexdigest().upper() for value in candidates},
+                          entry["path"])
 
 
 class EvidenceGuards(unittest.TestCase):
@@ -114,7 +120,7 @@ class EvidenceGuards(unittest.TestCase):
                 return {"text": "base", "version": "base.v1"}
             def fake_main(argv):
                 stand.reset()
-                out = stand.chat("Question")
+                out = stand.chat("Question", customer_id="CUS-0007")
                 stand.trace(out["request_id"])
                 raise RuntimeError("Simulated runner error")
             with patch.object(capture, "HERE", Path(temp)), \
@@ -125,11 +131,12 @@ class EvidenceGuards(unittest.TestCase):
                  patch.object(stand, "set_clock", side_effect=lambda c: state.update(clock=c)), \
                  patch.object(stand, "health", return_value={"status": "ok"}), \
                  patch.object(stand, "reset", return_value={}), \
-                 patch.object(stand, "chat", return_value=response), \
+                 patch.object(stand, "chat", return_value=response) as original_chat, \
                  patch.object(stand, "trace", return_value=tree), \
                  patch.object(capture.cli, "main", side_effect=fake_main):
                 with self.assertRaisesRegex(RuntimeError, "Simulated runner error"):
                     capture.run(["--set", "golden", "--profile", "clean"])
+            original_chat.assert_called_once_with("Question", None, customer_id="CUS-0007")
             saved = json.loads(next(Path(temp).glob("evidence/runs/*/captures.json")).read_text())
             self.assertEqual(len(saved[0]["response"]["answer"]), 700)
             self.assertEqual(saved[0]["llm_calls"], 1)
